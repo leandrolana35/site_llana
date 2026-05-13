@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  LLANA BRINDES — CATÁLOGO DE BRINDES (catalogo.html)
+  Arquivo: catalogo.html
+  ============================================================
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- TROQUE: título e meta description para SEO -->
+  <title>Catálogo de Brindes — LLANA Brindes Personalizados</title>
+  <meta name="description" content="Explore o catálogo completo de brindes personalizados LLANA. Canetas, bolsas, copos, agendas, tecnologia e muito mais." />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- TROQUE: favicon -->
+  <!-- <link rel="icon" type="image/png" href="img/favicon.png" /> -->
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  🎁 Brindes personalizados com sua marca — <a href="contato.html">Solicite um orçamento gratuito</a>
+</div>
+
+<!-- HEADER -->
+<header class="site-header" id="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <!-- TROQUE: logomarca LLANA -->
+        <!-- <img src="img/logo-llana.png" alt="LLANA Brindes"> -->
+        <div class="logo-text">
+          <span class="brand">LL<span>ANA</span></span>
+          <span class="tagline">Brindes &amp; Campanhas</span>
+        </div>
+      </a>
+      <nav class="main-nav" aria-label="Menu principal">
+        <a href="index.html">Início</a>
+        <a href="catalogo.html" class="active">Catálogo</a>
+        <a href="campanhas.html">Campanhas</a>
+        <a href="kits.html">Kits Promocionais</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+      <div class="header-cta">
+        <!-- TROQUE: número do WhatsApp -->
+        <a href="https://wa.me/5511999999999" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">💬 WhatsApp</a>
+        <a href="contato.html" class="btn btn-primary btn-sm">Solicitar Orçamento</a>
+      </div>
+      <button class="menu-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <nav class="mobile-menu">
+    <a href="index.html">🏠 Início</a>
+    <a href="catalogo.html" class="active">📦 Catálogo de Brindes</a>
+    <a href="campanhas.html">📣 Mural de Campanhas</a>
+    <a href="kits.html">🎁 Kits Promocionais</a>
+    <a href="contato.html">✉️ Contato</a>
+    <div class="mobile-menu-cta">
+      <a href="https://wa.me/5511999999999" class="btn btn-whatsapp btn-full" style="margin-bottom:.75rem;" target="_blank">💬 WhatsApp</a>
+      <a href="contato.html" class="btn btn-primary btn-full">Solicitar Orçamento</a>
+    </div>
+  </nav>
+</header>
+<!-- FIM DO HEADER -->
+
+<main>
+
+  <!-- ============================================================
+       BANNER INTERNO
+       TROQUE: título, subtítulo e imagem de fundo
+       ============================================================ -->
+  <section class="page-banner">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Início</a>
+        <span>/</span>
+        <span>Catálogo de Brindes</span>
+      </div>
+      <!-- TROQUE: título e texto do banner -->
+      <h1>Catálogo de Brindes</h1>
+      <p>Explore mais de 1.200 produtos prontos para receber a identidade da sua marca.</p>
+    </div>
+  </section>
+  <!-- FIM DO BANNER -->
+
+  <!-- ============================================================
+       BUSCA E FILTROS
+       ============================================================ -->
+  <section class="section" style="padding-bottom:0;">
+    <div class="container">
+
+      <!-- Campo de busca -->
+      <div class="search-bar reveal">
+        <!-- id="product-search" e id="search-btn" são usados pelo JS -->
+        <input
+          type="text"
+          id="product-search"
+          placeholder="Buscar produto (ex: caneta, mochila, copo...)"
+          aria-label="Buscar produto"
+        />
+        <button id="search-btn" aria-label="Buscar">🔍 Buscar</button>
+      </div>
+
+      <!-- Filtros de categoria -->
+      <!-- data-filter no botão deve corresponder ao data-cat nos cards -->
+      <div class="catalog-filters reveal">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <!-- TROQUE: categorias reais da LLANA -->
+        <button class="filter-btn" data-filter="canetas">✏️ Canetas e Escritório</button>
+        <button class="filter-btn" data-filter="bolsas">👜 Bolsas e Mochilas</button>
+        <button class="filter-btn" data-filter="copos">☕ Copos e Garrafas</button>
+        <button class="filter-btn" data-filter="agenda">📓 Agendas e Cadernos</button>
+        <button class="filter-btn" data-filter="camisetas">👕 Camisetas</button>
+        <button class="filter-btn" data-filter="tecnologia">💻 Tecnologia</button>
+        <button class="filter-btn" data-filter="ecobags">🌿 Ecobags</button>
+      </div>
+
+    </div>
+  </section>
+  <!-- FIM DA BUSCA E FILTROS -->
+
+  <!-- ============================================================
+       GRADE DE PRODUTOS
+       Para adicionar um novo produto, copie um bloco .produto-card
+       e ajuste: data-cat, imagem, nome, descrição e botão.
+       ============================================================ -->
+  <section class="section" style="padding-top:2rem;" id="produtos">
+    <div class="container">
+      <div class="produtos-grid">
+
+        <!-- ==========================================
+             PRODUTO 1
+             TROQUE: imagem, categoria, nome, descrição
+             ========================================== -->
+        <div class="produto-card reveal" data-cat="canetas">
+          <div class="produto-card-img">
+            <!--
+              IMAGEM DO PRODUTO:
+              Substitua pela foto do produto COM A LOGOMARCA LLANA APLICADA
+              (como gravação, impressão, silk ou bordado).
+              Tamanho sugerido: 400x400px
+            -->
+            <img
+              src="https://placehold.co/400x400/E3F2FD/1E3A5F?text=CANETA+%0A[LOGO+LLANA]"
+              alt="Caneta metálica personalizada — troque pela imagem com logo LLANA"
+            />
+            <div class="produto-card-badges">
+              <span class="badge badge-new">Novo</span>
+            </div>
+            <div class="produto-card-actions">
+              <a href="contato.html" class="btn btn-primary btn-sm">Orçar</a>
+            </div>
+          </div>
+          <div class="produto-card-body">
+            <span class="produto-card-cat">Canetas e Escritório</span>
+            <!-- TROQUE: nome e descrição do produto -->
+            <h4>Caneta Metálica Premium</h4>
+            <p>Caneta esferográfica com corpo metálico. Gravação a laser ou em silk.</p>
+          </div>
+          <div class="produto-card-footer">
+            <!-- TROQUE: quantidade mínima do pedido -->
+            <span class="produto-moq">Mínimo: <strong>50 un</strong></span>
+            <a href="contato.html" class="btn btn-primary btn-sm">Solicitar</a>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             PRODUTO 2
+             ========================================== -->
+        <div class="produto-card reveal" data-cat="canetas">
+          <div class="produto-card-img">
+            <img
+              src="https://placehold.co/400x400/E3F2FD/1E3A5F?text=KIT+ESCRITÓRIO+%0A[LOGO+LLANA]"
+              alt="Kit escritório — troque pela imagem com logo LLANA"
+            />
+            <div class="produto-card-badges">
+              <span class="badge badge-hot">Mais vendido</span>
+            </div>
+            <div class="produto-card-actions">
+              <a href="contato.html" class="btn btn-primary btn-sm">Orçar</a>
+            </div>
+          </div>
+          <div class="produto-card-body">
+            <span class="produto-card-cat">Canetas e Escritório</span>
+            <h4>Kit Escritório Personalizado</h4>
+            <p>Conjunto com caneta, lapiseira e porta-retratos. Caixa personalizável.</p>
+          </div>
+          <div class="produto-card-footer">
+            <span class="produto-moq">Mínimo: <strong>30 un</strong></span>
+            <a href="contato.html" class="btn btn-primary btn-sm">Solicitar</a>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             PRODUTO 3
+             ========================================== -->
+        <div class="produto-card reveal" data-cat="bolsas">
+          <div class="produto-card-img">
+            <img
+              src="https://placehold.co/400x400/F3E5F5/6A1B9A?text=MOCHILA+%0A[LOGO+LLANA]"
+              alt="Mochila personalizada — troque pela imagem com logo LLANA"
+            />
+            <div class="produto-card-badges">
+              <span class="badge badge-llana">LLANA</span>
+            </div>
+            <div class="produto-card-actions">
+              <a href="contato.html" class="btn btn-primary btn-sm">Orçar</a>
+            </div>
+          </div>
+          <div class="produto-card-body">
+            <span class="produto-card-cat">Bolsas e Mochilas</span>
+            <h4>Mochila Corporativa</h4>
+            <p>Mochila em nylon resistente com compartimento para notebook. Bordado ou silk.</p>
+          </div>
+          <div class="produto-card-footer">
+            <span class="produto-moq">Mínimo: <strong>20 un</strong></span>
+            <a href="contato.html" class="btn btn-primary btn-sm">Solicitar</a>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             PRODUTO 4
+             ========================================== -->
+        <div class="produto-card reveal" data-cat="bolsas">
+          <div class="produto-card-img">
+            <img
+              src="https://placehold.co/400x400/F3E5F5/6A1B9A?text=SACOLA+KRAFT+%0A[LOGO+LLANA]"
+              alt="Sacola kraft — troque pela imagem com logo LLANA"
+            />
+            <div class="produto-card-actions">
+              <a href="contato.html" class="btn btn-primary btn-sm">Orçar</a>
+            </div>
+          </div>
+          <div class="produto-card-body">
+            <span class="produto-card-cat">Bolsas e Mochilas</span>
+            <h4>Sacola Kraft Premium</h4>
+            <p>Sacola em papel kraft com impressão 4 cores. Ideal para embalagem de presentes.</p>
+          </div>
+          <div class="produto-card-footer">
+            <span class="produto-moq">Mínimo: <strong>100 un</strong></span>
+            <a href="contato.html" class="btn btn-primary btn-sm">Solicitar</a>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             PRODUTO 5
+             ========================================== -->
+        <div class="produto-card reveal" data-cat="copos">
+          <div class="produto-card-img">
+            <img
+              src="https://placehold.co/400x400/E8F5E9/2E7D32?text=GARRAFA+%0A[LOGO+LLANA]"
+              alt="Garrafa personalizada — troque pela imagem com logo LLANA"
+            />
+            <div class="produto-card-badges">
+              <span class="badge badge-new">Novo</span>
+            </div>
+            <div class="produto-card-actions">
+              <a href="contato.html" class="btn btn-primary btn-sm">Orçar</a>
+            </div>
+          </div>
+          <div class="produto-card-body">
+            <span class="produto-card-cat">Copos e Garrafas</span>
+            <h4>Garrafa Térmica Inox</h4>
+            <p>Garrafa inox 500ml com gravação a laser. Mantém temperatura por 12h.</p>
+          </div>
+          <div class="produto-card-footer">
+            <span class="produto-moq">Mínimo: <strong>30 un</strong></span>
+            <a href="contato.html" class="btn btn-primary btn-sm">Solicitar</a>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             PRODUTO 6
+             ========================================== -->
+        <div class="produto-card reveal" data-cat="copos">
+          <div class="produto-card-img">
+            <img
+              src="https://placehold.co/400x400/E8F5E9/2E7D32?text=COPO+CAFÉ+%0A[LOGO+LLANA]"
+              alt="Copo de café personalizado — troque pela imagem com logo LLANA"
+            />
+            <div class="produto-card-badges">
+              <span class="badge badge-hot">Popular</span>
+            </div>
+            <div class="produto-card-actions">
+              <a href="contato.html" class="btn btn-primary btn-sm">Orçar</a>
+            </div>
+          </div>
+          <div class="produto-card-body">
+            <span class="produto-card-cat">Copos e Garrafas</span>
+            <h4>Copo Térmico para Café</h4>
+            <p>Copo 300ml com tampa hermética. Impressão em alta definição na parede do copo.</p>
+          </div>
+          <div class="produto-card-footer">
+            <span class="produto-moq">Mínimo: <strong>50 un</strong></span>
+            <a href="contato.html" class="btn btn-primary btn-sm">Solicitar</a>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             PRODUTO 7
+             ========================================== -->
+        <div class="produto-card reveal" data-cat="agenda">
+          <div class="produto-card-img">
+            <img
+              src="https://placehold.co/400x400/FFF8E1/E65100?text=AGENDA+%0A[LOGO+LLANA]"
+              alt="Agenda personalizada — troque pela imagem com logo LLANA"
+            />
+            <div class="produto-card-actions">
+              <a href="contato.html" class="btn btn-primary btn-sm">Orçar</a>
+            </div>
+          </div>
+          <div class="produto-card-body">
+            <span class="produto-card-cat">Agendas e Cadernos</span>
+            <h4>Agenda Executiva Capa Dura</h4>
+            <p>Agenda 2025 com capa em couro sintético, gravação em relevo ou dourado.</p>
+          </div>
+          <div class="produto-card-footer">
+            <span class="produto-moq">Mínimo: <strong>25 un</strong></span>
+            <a href="contato.html" class="btn btn-primary btn-sm">Solicitar</a>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             PRODUTO 8
+             ========================================== -->
+        <div class="produto-card reveal" data-cat="agenda">
+          <div class="produto-card-img">
+            <img
+              src="https://placehold.co/400x400/FFF8E1/E65100?text=CADERNO+%0A[LOGO+LLANA]"
+              alt="Caderno personalizado — troque pela imagem com logo LLANA"
+            />
+            <div class="produto-card-badges">
+              <span class="badge badge-promo">Promoção</span>
+            </div>
+            <div class="produto-card-actions">
+              <a href="contato.html" class="btn btn-primary btn-sm">Orçar</a>
+            </div>
+          </div>
+          <div class="produto-card-body">
+            <span class="produto-card-cat">Agendas e Cadernos</span>
+            <h4>Caderno Espiral Personalizado</h4>
+            <p>Caderno A5 com capa impressa frente e verso. 100 folhas pautadas.</p>
+          </div>
+          <div class="produto-card-footer">
+            <span class="produto-moq">Mínimo: <strong>50 un</strong></span>
+            <a href="contato.html" class="btn btn-primary btn-sm">Solicitar</a>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             PRODUTO 9
+             ========================================== -->
+        <div class="produto-card reveal" data-cat="camisetas">
+          <div class="produto-card-img">
+            <img
+              src="https://placehold.co/400x400/FCE4EC/C62828?text=CAMISETA+%0A[LOGO+LLANA]"
+              alt="Camiseta personalizada — troque pela imagem com logo LLANA"
+            />
+            <div class="produto-card-badges">
+              <span class="badge badge-llana">LLANA</span>
+            </div>
+            <div class="produto-card-actions">
+              <a href="contato.html" class="btn btn-primary btn-sm">Orçar</a>
+            </div>
+          </div>
+          <div class="produto-card-body">
+            <span class="produto-card-cat">Camisetas</span>
+            <h4>Camiseta Gola Redonda</h4>
+            <p>100% algodão, corte regular. Estampa serigráfica ou sublimação total.</p>
+          </div>
+          <div class="produto-card-footer">
+            <span class="produto-moq">Mínimo: <strong>12 un</strong></span>
+            <a href="contato.html" class="btn btn-primary btn-sm">Solicitar</a>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             PRODUTO 10
+             ========================================== -->
+        <div class="produto-card reveal" data-cat="tecnologia">
+          <div class="produto-card-img">
+            <img
+              src="https://placehold.co/400x400/E8EAF6/283593?text=POWERBANK+%0A[LOGO+LLANA]"
+              alt="Powerbank personalizado — troque pela imagem com logo LLANA"
+            />
+            <div class="produto-card-badges">
+              <span class="badge badge-new">Novo</span>
+            </div>
+            <div class="produto-card-actions">
+              <a href="contato.html" class="btn btn-primary btn-sm">Orçar</a>
+            </div>
+          </div>
+          <div class="produto-card-body">
+            <span class="produto-card-cat">Tecnologia</span>
+            <h4>Powerbank 10.000mAh</h4>
+            <p>Carregador portátil com 2 saídas USB. Impressão da logo em UV direto.</p>
+          </div>
+          <div class="produto-card-footer">
+            <span class="produto-moq">Mínimo: <strong>20 un</strong></span>
+            <a href="contato.html" class="btn btn-primary btn-sm">Solicitar</a>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             PRODUTO 11
+             ========================================== -->
+        <div class="produto-card reveal" data-cat="tecnologia">
+          <div class="produto-card-img">
+            <img
+              src="https://placehold.co/400x400/E8EAF6/283593?text=MOUSE+PAD+%0A[LOGO+LLANA]"
+              alt="Mouse pad personalizado — troque pela imagem com logo LLANA"
+            />
+            <div class="produto-card-actions">
+              <a href="contato.html" class="btn btn-primary btn-sm">Orçar</a>
+            </div>
+          </div>
+          <div class="produto-card-body">
+            <span class="produto-card-cat">Tecnologia</span>
+            <h4>Mouse Pad Sublimado</h4>
+            <p>Mouse pad 21x17cm com impressão sublimática em alta resolução.</p>
+          </div>
+          <div class="produto-card-footer">
+            <span class="produto-moq">Mínimo: <strong>100 un</strong></span>
+            <a href="contato.html" class="btn btn-primary btn-sm">Solicitar</a>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             PRODUTO 12
+             ========================================== -->
+        <div class="produto-card reveal" data-cat="ecobags">
+          <div class="produto-card-img">
+            <img
+              src="https://placehold.co/400x400/E0F2F1/00695C?text=ECOBAG+%0A[LOGO+LLANA]"
+              alt="Ecobag personalizada — troque pela imagem com logo LLANA"
+            />
+            <div class="produto-card-badges">
+              <span class="badge badge-new">Sustentável</span>
+            </div>
+            <div class="produto-card-actions">
+              <a href="contato.html" class="btn btn-primary btn-sm">Orçar</a>
+            </div>
+          </div>
+          <div class="produto-card-body">
+            <span class="produto-card-cat">Ecobags</span>
+            <h4>Ecobag TNT Personalizada</h4>
+            <p>Sacola ecológica em TNT 80g. Impressão silk 1 ou 2 cores nos dois lados.</p>
+          </div>
+          <div class="produto-card-footer">
+            <span class="produto-moq">Mínimo: <strong>100 un</strong></span>
+            <a href="contato.html" class="btn btn-primary btn-sm">Solicitar</a>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             ADICIONE MAIS PRODUTOS ABAIXO:
+             Copie qualquer bloco .produto-card acima
+             e altere: data-cat, imagem, textos e link
+             ========================================== -->
+
+      </div>
+    </div>
+  </section>
+  <!-- FIM DA GRADE DE PRODUTOS -->
+
+  <!-- ============================================================
+       COMO FUNCIONA O PEDIDO
+       TROQUE: textos explicativos
+       ============================================================ -->
+  <section class="section section--alt" id="como-funciona">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Processo simplificado</span>
+        <h2>Como funciona o pedido</h2>
+        <p>Do orçamento à entrega, cuidamos de cada etapa para você.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;" class="reveal">
+
+        <!-- TROQUE: passos do processo abaixo -->
+        <div style="text-align:center;padding:2rem 1rem;">
+          <div style="width:60px;height:60px;background:var(--c-primary);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:700;margin:0 auto 1rem;">1</div>
+          <h4>Escolha o produto</h4>
+          <p style="font-size:.9rem;">Navegue pelo catálogo e selecione o item ideal para sua campanha.</p>
+        </div>
+
+        <div style="text-align:center;padding:2rem 1rem;">
+          <div style="width:60px;height:60px;background:var(--c-accent);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:700;margin:0 auto 1rem;">2</div>
+          <h4>Solicite orçamento</h4>
+          <p style="font-size:.9rem;">Informe quantidade, prazo e dados da arte. Retornamos em até 2h.</p>
+        </div>
+
+        <div style="text-align:center;padding:2rem 1rem;">
+          <div style="width:60px;height:60px;background:var(--c-primary);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:700;margin:0 auto 1rem;">3</div>
+          <h4>Aprovação da arte</h4>
+          <p style="font-size:.9rem;">Enviamos o mockup com sua logo. Aprovado, produção imediata.</p>
+        </div>
+
+        <div style="text-align:center;padding:2rem 1rem;">
+          <div style="width:60px;height:60px;background:var(--c-accent);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:700;margin:0 auto 1rem;">4</div>
+          <h4>Entrega garantida</h4>
+          <p style="font-size:.9rem;">Receba seu pedido no prazo combinado, em todo o Brasil.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- FIM DO COMO FUNCIONA -->
+
+  <!-- CTA FINAL DO CATÁLOGO -->
+  <section class="cta-banner">
+    <div class="container">
+      <!-- TROQUE: texto do CTA final -->
+      <h2 class="reveal">Não encontrou o que procura?</h2>
+      <p class="reveal">Temos mais de 1.200 produtos em nosso portfólio completo.<br>Fale com um consultor e encontramos a solução ideal.</p>
+      <div class="cta-buttons reveal">
+        <!-- TROQUE: número do WhatsApp e link de contato -->
+        <a href="https://wa.me/5511999999999" class="btn btn-whatsapp btn-xl" target="_blank" rel="noopener">💬 Falar no WhatsApp</a>
+        <a href="contato.html" class="btn btn-outline btn-xl">Solicitar Orçamento</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER (mesmo do index.html — copie e cole) -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">
+          <span class="brand">LL<span>ANA</span></span>
+          <div class="tagline">Brindes &amp; Campanhas</div>
+        </div>
+        <p style="margin-top:1rem;">Especialistas em brindes personalizados e kits promocionais para marcas que querem impactar.</p>
+        <div class="social-links">
+          <!-- TROQUE: links reais das redes sociais -->
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="LinkedIn">💼</a>
+          <a href="#" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <a href="index.html">Início</a>
+        <a href="catalogo.html">Catálogo de Brindes</a>
+        <a href="campanhas.html">Mural de Campanhas</a>
+        <a href="kits.html">Kits Promocionais</a>
+        <a href="contato.html">Contato</a>
+      </div>
+      <div class="footer-col">
+        <h4>Categorias</h4>
+        <a href="catalogo.html?cat=canetas">Canetas e Escritório</a>
+        <a href="catalogo.html?cat=bolsas">Bolsas e Mochilas</a>
+        <a href="catalogo.html?cat=copos">Copos e Garrafas</a>
+        <a href="catalogo.html?cat=agenda">Agendas e Cadernos</a>
+        <a href="catalogo.html?cat=camisetas">Camisetas e Uniformes</a>
+        <a href="catalogo.html?cat=tecnologia">Tecnologia</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <!-- TROQUE: informações de contato reais -->
+        <div class="footer-contact-item">
+          <div class="ico">📍</div>
+          <div><strong>Endereço</strong><p>Rua Exemplo, 123 — São Paulo, SP</p></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="ico">📞</div>
+          <div><strong>WhatsApp</strong><p><a href="tel:+5511999999999">(11) 99999-9999</a></p></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="ico">✉️</div>
+          <div><strong>E-mail</strong><p><a href="mailto:contato@llana.com.br">contato@llana.com.br</a></p></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <!-- TROQUE: ano e links de política -->
+      <span>© 2025 LLANA Brindes. Todos os direitos reservados.</span>
+      <span><a href="#">Política de Privacidade</a> &nbsp;|&nbsp; <a href="#">Termos de Uso</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flutuante — TROQUE número -->
+<div class="whatsapp-float">
+  <span class="whatsapp-tooltip">Fale conosco!</span>
+  <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Vi%20o%20cat%C3%A1logo%20e%20quero%20um%20or%C3%A7amento."
+     class="whatsapp-float-btn whatsapp-pulse" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1520 @@
+/* ============================================================
+   LLANA BRINDES — CSS GLOBAL
+   Arquivo: css/style.css
+
+   ÍNDICE:
+   01. Variáveis de marca e reset
+   02. Tipografia
+   03. Utilitários e layout
+   04. Header e navegação
+   05. Footer
+   06. Botões
+   07. Hero / banners internos
+   08. Seção de diferenciais
+   09. Seção de categorias
+   10. Cards de produto
+   11. Cards de campanha
+   12. Cards de kit
+   13. Formulários e integrações
+   14. FAQ accordion
+   15. Seção de contato
+   16. Selos de confiança
+   17. WhatsApp flutuante
+   18. Animações e scroll reveal
+   19. Responsivo
+   ============================================================ */
+
+/* ============================================================
+   01. VARIÁVEIS DE MARCA E RESET
+   ATENÇÃO: Para mudar a identidade visual da LLANA,
+   ajuste apenas as variáveis abaixo.
+   ============================================================ */
+:root {
+  /* === CORES PRINCIPAIS DA MARCA LLANA === */
+  /* TROQUE AQUI para adaptar a identidade visual */
+  --c-primary:       #1E3A5F;   /* Azul principal — confiança, solidez */
+  --c-primary-dk:    #152B47;   /* Azul escuro — hover, estados ativos */
+  --c-primary-lt:    #2A4E7F;   /* Azul claro */
+  --c-accent:        #FF6B35;   /* Laranja — CTA, energia, destaque */
+  --c-accent-dk:     #E05520;   /* Laranja escuro — hover */
+  --c-accent-lt:     #FF8C5A;   /* Laranja claro */
+  --c-success:       #2E7D32;   /* Verde — confirmação */
+  --c-gold:          #F4A61A;   /* Dourado — premium, badges */
+
+  /* === CORES NEUTRAS === */
+  --c-white:         #FFFFFF;
+  --c-bg:            #F7F9FC;
+  --c-bg-alt:        #EFF3F8;
+  --c-border:        #DDE4EE;
+  --c-gray-lt:       #B0BEC5;
+  --c-gray:          #6B7A8D;
+  --c-gray-dk:       #3D4A5C;
+  --c-dark:          #1A2535;
+  --c-black:         #0D1520;
+
+  /* === TIPOGRAFIA === */
+  --font-main:  'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semi:    600;
+  --fw-bold:    700;
+  --fw-black:   900;
+
+  /* === ESPAÇAMENTOS === */
+  --sp-1: 0.25rem;   --sp-2: 0.5rem;    --sp-3: 0.75rem;
+  --sp-4: 1rem;      --sp-5: 1.25rem;   --sp-6: 1.5rem;
+  --sp-8: 2rem;      --sp-10: 2.5rem;   --sp-12: 3rem;
+  --sp-16: 4rem;     --sp-20: 5rem;     --sp-24: 6rem;
+
+  /* === BORDAS === */
+  --r-sm:  4px;   --r-md:  8px;   --r-lg:  14px;
+  --r-xl:  20px;  --r-2xl: 28px;  --r-full: 9999px;
+
+  /* === SOMBRAS === */
+  --sh-sm:   0 1px 4px rgba(30,58,95,.08);
+  --sh-md:   0 4px 12px rgba(30,58,95,.10);
+  --sh-lg:   0 10px 28px rgba(30,58,95,.12);
+  --sh-xl:   0 20px 48px rgba(30,58,95,.14);
+  --sh-card: 0 2px 18px rgba(30,58,95,.09);
+  --sh-hvr:  0 8px 32px rgba(30,58,95,.18);
+
+  /* === TRANSIÇÕES === */
+  --tr-fast: .15s ease;
+  --tr-base: .3s ease;
+  --tr-slow: .5s ease;
+
+  /* === LAYOUT === */
+  --max-w:      1220px;
+  --hdr-height: 78px;
+}
+
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html  { scroll-behavior: smooth; }
+body  {
+  font-family: var(--font-main);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--c-dark);
+  background: var(--c-white);
+  -webkit-font-smoothing: antialiased;
+}
+img   { max-width: 100%; height: auto; display: block; }
+a     { text-decoration: none; color: inherit; transition: color var(--tr-fast); }
+ul,ol { list-style: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; font-size: inherit; }
+input,textarea,select { font-family: inherit; font-size: inherit; }
+
+/* ============================================================
+   02. TIPOGRAFIA
+   ============================================================ */
+h1,h2,h3,h4,h5,h6 {
+  font-weight: var(--fw-bold);
+  line-height: 1.25;
+  color: var(--c-dark);
+}
+h1 { font-size: clamp(2rem, 4.5vw, 3.25rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
+h4 { font-size: 1.15rem; }
+p  { margin-bottom: var(--sp-4); color: var(--c-gray-dk); }
+p:last-child { margin-bottom: 0; }
+strong { font-weight: var(--fw-bold); color: var(--c-dark); }
+
+/* ============================================================
+   03. UTILITÁRIOS E LAYOUT
+   ============================================================ */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--sp-6);
+}
+.section { padding: var(--sp-20) 0; }
+.section--alt { background: var(--c-bg); }
+.section--dark {
+  background: var(--c-primary);
+  color: var(--c-white);
+}
+.section--dark h2,
+.section--dark h3,
+.section--dark p { color: var(--c-white); }
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--sp-12);
+}
+.section-header .tag {
+  display: inline-block;
+  background: rgba(255,107,53,.12);
+  color: var(--c-accent);
+  font-size: .78rem;
+  font-weight: var(--fw-semi);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: var(--sp-1) var(--sp-3);
+  border-radius: var(--r-full);
+  margin-bottom: var(--sp-3);
+}
+.section-header h2 { margin-bottom: var(--sp-4); }
+.section-header p  { max-width: 620px; margin: 0 auto; font-size: 1.08rem; }
+
+/* ============================================================
+   04. HEADER E NAVEGAÇÃO
+   ============================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--c-white);
+  height: var(--hdr-height);
+  box-shadow: var(--sh-md);
+  transition: box-shadow var(--tr-base);
+}
+.site-header.scrolled { box-shadow: var(--sh-lg); }
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* Logo — TROQUE a imagem da logomarca LLANA aqui */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-shrink: 0;
+}
+.logo img {
+  height: 48px;
+  width: auto;
+  /* Substitua por: <img src="img/logo-llana.png" alt="LLANA Brindes"> */
+}
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+.logo-text .brand {
+  font-size: 1.5rem;
+  font-weight: var(--fw-black);
+  color: var(--c-primary);
+  letter-spacing: -.02em;
+  line-height: 1;
+}
+.logo-text .brand span { color: var(--c-accent); }
+.logo-text .tagline {
+  font-size: .65rem;
+  font-weight: var(--fw-medium);
+  color: var(--c-gray);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+/* Navegação principal */
+.main-nav { display: flex; align-items: center; gap: var(--sp-1); }
+.main-nav a {
+  padding: var(--sp-2) var(--sp-4);
+  border-radius: var(--r-md);
+  font-weight: var(--fw-medium);
+  font-size: .93rem;
+  color: var(--c-gray-dk);
+  transition: all var(--tr-fast);
+  white-space: nowrap;
+}
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--c-primary);
+  background: var(--c-bg-alt);
+}
+.main-nav a.active { font-weight: var(--fw-semi); }
+
+/* CTA no header */
+.header-cta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+/* Mobile menu toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: var(--sp-2);
+  cursor: pointer;
+}
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--c-primary);
+  border-radius: 2px;
+  transition: all var(--tr-base);
+}
+.menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Top bar opcional */
+.top-bar {
+  background: var(--c-primary);
+  color: rgba(255,255,255,.85);
+  font-size: .78rem;
+  padding: var(--sp-2) 0;
+  text-align: center;
+}
+.top-bar a { color: var(--c-accent-lt); font-weight: var(--fw-semi); }
+
+/* ============================================================
+   05. FOOTER
+   ============================================================ */
+.site-footer {
+  background: var(--c-dark);
+  color: rgba(255,255,255,.75);
+  padding: var(--sp-20) 0 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: var(--sp-10);
+  padding-bottom: var(--sp-12);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.footer-col h4 {
+  color: var(--c-white);
+  font-size: .9rem;
+  font-weight: var(--fw-semi);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  margin-bottom: var(--sp-5);
+}
+.footer-col p { color: rgba(255,255,255,.65); font-size: .9rem; margin-bottom: var(--sp-3); }
+.footer-col a {
+  display: block;
+  color: rgba(255,255,255,.65);
+  font-size: .9rem;
+  margin-bottom: var(--sp-2);
+  transition: color var(--tr-fast);
+}
+.footer-col a:hover { color: var(--c-accent); }
+.footer-logo .brand { color: var(--c-white); font-size: 1.6rem; font-weight: var(--fw-black); }
+.footer-logo .brand span { color: var(--c-accent); }
+.footer-logo .tagline { color: rgba(255,255,255,.45); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; }
+.footer-logo p { margin-top: var(--sp-4); }
+
+/* Contatos no footer */
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-4);
+}
+.footer-contact-item .ico {
+  width: 36px;
+  height: 36px;
+  background: rgba(255,107,53,.15);
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+.footer-contact-item p { margin: 0; font-size: .88rem; }
+.footer-contact-item strong { display: block; color: var(--c-white); font-size: .78rem; }
+
+/* Redes sociais */
+.social-links {
+  display: flex;
+  gap: var(--sp-3);
+  margin-top: var(--sp-5);
+}
+.social-links a {
+  width: 38px;
+  height: 38px;
+  background: rgba(255,255,255,.08);
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: all var(--tr-fast);
+  margin-bottom: 0;
+}
+.social-links a:hover { background: var(--c-accent); color: var(--c-white); }
+
+/* Newsletter no footer */
+.footer-newsletter { margin-top: var(--sp-5); }
+.footer-newsletter p { margin-bottom: var(--sp-3); }
+.footer-newsletter-form {
+  display: flex;
+  gap: var(--sp-2);
+}
+.footer-newsletter-form input {
+  flex: 1;
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-md);
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.08);
+  color: var(--c-white);
+  font-size: .88rem;
+  outline: none;
+  transition: border var(--tr-fast);
+}
+.footer-newsletter-form input::placeholder { color: rgba(255,255,255,.4); }
+.footer-newsletter-form input:focus { border-color: var(--c-accent); }
+
+/* Copyright bar */
+.footer-bottom {
+  padding: var(--sp-5) 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  font-size: .82rem;
+  color: rgba(255,255,255,.4);
+}
+.footer-bottom a { color: rgba(255,255,255,.4); }
+.footer-bottom a:hover { color: var(--c-accent); }
+
+/* ============================================================
+   06. BOTÕES
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  padding: .75rem 1.75rem;
+  border-radius: var(--r-md);
+  font-weight: var(--fw-semi);
+  font-size: .95rem;
+  line-height: 1;
+  transition: all var(--tr-base);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.btn-primary {
+  background: var(--c-accent);
+  color: var(--c-white);
+  box-shadow: 0 4px 14px rgba(255,107,53,.35);
+}
+.btn-primary:hover {
+  background: var(--c-accent-dk);
+  box-shadow: 0 6px 20px rgba(255,107,53,.45);
+  transform: translateY(-1px);
+  color: var(--c-white);
+}
+.btn-secondary {
+  background: var(--c-primary);
+  color: var(--c-white);
+  box-shadow: 0 4px 14px rgba(30,58,95,.25);
+}
+.btn-secondary:hover {
+  background: var(--c-primary-dk);
+  transform: translateY(-1px);
+  color: var(--c-white);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--c-white);
+  border: 2px solid rgba(255,255,255,.65);
+}
+.btn-outline:hover {
+  background: var(--c-white);
+  color: var(--c-primary);
+  border-color: var(--c-white);
+}
+.btn-outline-dark {
+  background: transparent;
+  color: var(--c-primary);
+  border: 2px solid var(--c-primary);
+}
+.btn-outline-dark:hover {
+  background: var(--c-primary);
+  color: var(--c-white);
+}
+.btn-ghost {
+  background: rgba(255,255,255,.12);
+  color: var(--c-white);
+  border: 1px solid rgba(255,255,255,.25);
+}
+.btn-ghost:hover { background: rgba(255,255,255,.22); color: var(--c-white); }
+.btn-sm  { padding: .55rem 1.2rem; font-size: .85rem; }
+.btn-lg  { padding: 1rem 2.5rem; font-size: 1.05rem; }
+.btn-xl  { padding: 1.1rem 3rem; font-size: 1.1rem; border-radius: var(--r-lg); }
+.btn-full { width: 100%; }
+.btn-icon { padding: .75rem; border-radius: var(--r-full); }
+
+/* Botão WhatsApp */
+.btn-whatsapp {
+  background: #25D366;
+  color: var(--c-white);
+  box-shadow: 0 4px 14px rgba(37,211,102,.35);
+}
+.btn-whatsapp:hover {
+  background: #1ebe5c;
+  transform: translateY(-1px);
+  color: var(--c-white);
+}
+
+/* ============================================================
+   07. HERO / BANNERS INTERNOS
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--c-primary) 0%, var(--c-primary-lt) 60%, #2D5FA0 100%);
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  /* TROQUE pelo caminho da imagem principal do hero */
+  /* background-image: url('img/hero-bg.jpg'); */
+  background-size: cover;
+  background-position: center;
+  opacity: .18;
+}
+.hero-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(255,107,53,.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,.06) 0%, transparent 50%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+}
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.2);
+  color: rgba(255,255,255,.9);
+  font-size: .8rem;
+  font-weight: var(--fw-semi);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: var(--sp-2) var(--sp-4);
+  border-radius: var(--r-full);
+  margin-bottom: var(--sp-6);
+}
+.hero-tag .dot {
+  width: 6px; height: 6px;
+  background: var(--c-accent);
+  border-radius: 50%;
+  animation: pulse-dot 1.8s infinite;
+}
+.hero h1 {
+  color: var(--c-white);
+  margin-bottom: var(--sp-6);
+  text-shadow: 0 2px 20px rgba(0,0,0,.2);
+}
+.hero h1 span { color: var(--c-accent); }
+.hero p {
+  color: rgba(255,255,255,.82);
+  font-size: 1.15rem;
+  max-width: 520px;
+  margin-bottom: var(--sp-8);
+}
+.hero-cta { display: flex; flex-wrap: wrap; gap: var(--sp-4); }
+.hero-stats {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: var(--sp-8);
+  margin-top: var(--sp-12);
+  padding-top: var(--sp-8);
+  border-top: 1px solid rgba(255,255,255,.15);
+}
+.hero-stat-item strong {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: var(--fw-black);
+  color: var(--c-white);
+  line-height: 1;
+}
+.hero-stat-item span {
+  font-size: .8rem;
+  color: rgba(255,255,255,.6);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+/* Hero com imagem lateral */
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-10);
+  align-items: center;
+  min-height: 80vh;
+  padding: var(--sp-16) 0;
+}
+.hero-split-image {
+  position: relative;
+  /* TROQUE pelo mockup do produto com logomarca LLANA aplicada */
+}
+.hero-split-image img {
+  border-radius: var(--r-2xl);
+  box-shadow: var(--sh-xl);
+}
+
+/* Banner interno das páginas secundárias */
+.page-banner {
+  background: linear-gradient(135deg, var(--c-primary) 0%, var(--c-primary-lt) 100%);
+  padding: var(--sp-16) 0;
+  position: relative;
+  overflow: hidden;
+}
+.page-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 80% 50%, rgba(255,107,53,.12) 0%, transparent 60%);
+}
+.page-banner .container { position: relative; z-index: 1; }
+.page-banner h1 { color: var(--c-white); font-size: clamp(1.6rem, 3vw, 2.5rem); margin-bottom: var(--sp-3); }
+.page-banner p { color: rgba(255,255,255,.75); max-width: 550px; margin: 0; }
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: .82rem;
+  color: rgba(255,255,255,.55);
+  margin-bottom: var(--sp-4);
+}
+.breadcrumb a { color: rgba(255,255,255,.65); }
+.breadcrumb a:hover { color: var(--c-accent); }
+.breadcrumb span { color: rgba(255,255,255,.35); }
+
+/* ============================================================
+   08. SEÇÃO DE DIFERENCIAIS
+   ============================================================ */
+.diferenciais-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-6);
+}
+.diferencial-card {
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-xl);
+  padding: var(--sp-8);
+  text-align: center;
+  box-shadow: var(--sh-card);
+  transition: all var(--tr-base);
+}
+.diferencial-card:hover {
+  box-shadow: var(--sh-hvr);
+  transform: translateY(-4px);
+  border-color: var(--c-accent);
+}
+.diferencial-card .ico-wrap {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, rgba(255,107,53,.12), rgba(30,58,95,.08));
+  border-radius: var(--r-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin: 0 auto var(--sp-5);
+}
+.diferencial-card h4 { margin-bottom: var(--sp-3); color: var(--c-primary); }
+.diferencial-card p { font-size: .9rem; margin: 0; }
+
+/* ============================================================
+   09. SEÇÃO DE CATEGORIAS
+   ============================================================ */
+.categorias-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-5);
+}
+.categoria-card {
+  position: relative;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  cursor: pointer;
+  transition: transform var(--tr-base);
+}
+.categoria-card:hover { transform: scale(1.02); }
+.categoria-card:hover .cat-overlay { opacity: 1; }
+.categoria-card:hover .cat-img { transform: scale(1.05); }
+.cat-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--tr-slow);
+  /* TROQUE pela imagem de cada categoria com produto LLANA */
+}
+/* Placeholder de cor caso não haja imagem */
+.cat-img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  background: linear-gradient(135deg, var(--c-bg-alt), var(--c-border));
+}
+.cat-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(30,58,95,.85) 0%, rgba(30,58,95,.3) 50%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--sp-6);
+  opacity: .82;
+  transition: opacity var(--tr-base);
+}
+.cat-overlay h3 { color: var(--c-white); font-size: 1.15rem; margin-bottom: var(--sp-1); }
+.cat-overlay span { color: rgba(255,255,255,.75); font-size: .82rem; }
+.cat-badge {
+  position: absolute;
+  top: var(--sp-4);
+  right: var(--sp-4);
+  background: var(--c-accent);
+  color: var(--c-white);
+  font-size: .72rem;
+  font-weight: var(--fw-bold);
+  padding: var(--sp-1) var(--sp-3);
+  border-radius: var(--r-full);
+}
+
+/* Categorias em lista horizontal */
+.categorias-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  justify-content: center;
+}
+.cat-pill {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-5);
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-full);
+  cursor: pointer;
+  font-size: .9rem;
+  font-weight: var(--fw-medium);
+  transition: all var(--tr-fast);
+  box-shadow: var(--sh-sm);
+}
+.cat-pill:hover,
+.cat-pill.active {
+  background: var(--c-primary);
+  color: var(--c-white);
+  border-color: var(--c-primary);
+}
+.cat-pill .emoji { font-size: 1.1rem; }
+
+/* ============================================================
+   10. CARDS DE PRODUTO
+   ============================================================ */
+.produtos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-6);
+}
+.produto-card {
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--sh-card);
+  transition: all var(--tr-base);
+  display: flex;
+  flex-direction: column;
+}
+.produto-card:hover {
+  box-shadow: var(--sh-hvr);
+  transform: translateY(-5px);
+  border-color: rgba(255,107,53,.3);
+}
+.produto-card-img {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--c-bg);
+}
+.produto-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--tr-slow);
+  /* TROQUE pela imagem do produto COM LOGOMARCA LLANA APLICADA */
+  /* Comentário do mockup: aplicar gravação/personalização da marca LLANA */
+}
+.produto-card:hover .produto-card-img img { transform: scale(1.06); }
+.produto-card-badges {
+  position: absolute;
+  top: var(--sp-3);
+  left: var(--sp-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+.badge {
+  font-size: .7rem;
+  font-weight: var(--fw-bold);
+  padding: 2px var(--sp-3);
+  border-radius: var(--r-full);
+  line-height: 1.6;
+}
+.badge-new    { background: var(--c-accent); color: var(--c-white); }
+.badge-hot    { background: #E53935; color: var(--c-white); }
+.badge-promo  { background: var(--c-gold); color: var(--c-black); }
+.badge-llana  { background: var(--c-primary); color: var(--c-white); }
+
+.produto-card-actions {
+  position: absolute;
+  bottom: var(--sp-3);
+  right: var(--sp-3);
+  opacity: 0;
+  transition: opacity var(--tr-base);
+}
+.produto-card:hover .produto-card-actions { opacity: 1; }
+
+.produto-card-body {
+  padding: var(--sp-5);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.produto-card-cat {
+  font-size: .72rem;
+  font-weight: var(--fw-semi);
+  color: var(--c-accent);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: var(--sp-2);
+}
+.produto-card-body h4 {
+  font-size: 1rem;
+  margin-bottom: var(--sp-2);
+  color: var(--c-dark);
+  flex: 1;
+}
+.produto-card-body p {
+  font-size: .84rem;
+  color: var(--c-gray);
+  margin-bottom: var(--sp-4);
+}
+.produto-card-footer {
+  padding: var(--sp-4) var(--sp-5);
+  border-top: 1px solid var(--c-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+.produto-moq {
+  font-size: .78rem;
+  color: var(--c-gray);
+}
+.produto-moq strong { color: var(--c-primary); }
+
+/* ============================================================
+   11. CARDS DE CAMPANHA
+   ============================================================ */
+.campanhas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-6);
+}
+.campanha-card {
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--sh-card);
+  transition: all var(--tr-base);
+}
+.campanha-card:hover {
+  box-shadow: var(--sh-hvr);
+  transform: translateY(-4px);
+}
+.campanha-card-img {
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: var(--c-bg);
+  position: relative;
+}
+.campanha-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--tr-slow);
+  /* TROQUE pela imagem da campanha com marca LLANA aplicada */
+}
+.campanha-card:hover .campanha-card-img img { transform: scale(1.04); }
+.campanha-period {
+  position: absolute;
+  top: var(--sp-3);
+  left: var(--sp-3);
+  background: rgba(30,58,95,.85);
+  backdrop-filter: blur(4px);
+  color: var(--c-white);
+  font-size: .72rem;
+  font-weight: var(--fw-semi);
+  padding: var(--sp-1) var(--sp-3);
+  border-radius: var(--r-full);
+}
+.campanha-card-body { padding: var(--sp-5); }
+.campanha-card-body h4 { margin-bottom: var(--sp-2); }
+.campanha-card-body p { font-size: .88rem; margin-bottom: var(--sp-4); }
+.campanha-card-footer {
+  display: flex;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   12. CARDS DE KIT
+   ============================================================ */
+.kits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-6);
+}
+.kit-card {
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--sh-card);
+  transition: all var(--tr-base);
+  display: flex;
+  flex-direction: column;
+}
+.kit-card:hover {
+  box-shadow: var(--sh-hvr);
+  transform: translateY(-4px);
+  border-color: var(--c-accent);
+}
+.kit-card-img {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--c-bg);
+  position: relative;
+}
+.kit-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--tr-slow);
+  /* TROQUE pelo mockup do kit COM LOGOMARCA LLANA APLICADA nos produtos */
+  /* Indicar onde fica a gravação/personalização da marca */
+}
+.kit-card:hover .kit-card-img img { transform: scale(1.04); }
+.kit-tag {
+  position: absolute;
+  top: var(--sp-4);
+  left: var(--sp-4);
+  background: var(--c-accent);
+  color: var(--c-white);
+  font-size: .72rem;
+  font-weight: var(--fw-bold);
+  padding: var(--sp-1) var(--sp-3);
+  border-radius: var(--r-full);
+}
+.kit-card-body {
+  padding: var(--sp-6);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.kit-card-body h3 { font-size: 1.15rem; margin-bottom: var(--sp-2); }
+.kit-card-body > p { font-size: .88rem; margin-bottom: var(--sp-4); }
+.kit-itens {
+  background: var(--c-bg);
+  border-radius: var(--r-lg);
+  padding: var(--sp-4);
+  margin-bottom: var(--sp-5);
+}
+.kit-itens h5 {
+  font-size: .75rem;
+  font-weight: var(--fw-semi);
+  color: var(--c-gray);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: var(--sp-3);
+}
+.kit-itens ul li {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: .85rem;
+  color: var(--c-gray-dk);
+  padding: var(--sp-1) 0;
+}
+.kit-itens ul li::before {
+  content: '✓';
+  color: var(--c-success);
+  font-weight: var(--fw-bold);
+  font-size: .8rem;
+  flex-shrink: 0;
+}
+.kit-moq {
+  font-size: .78rem;
+  color: var(--c-gray);
+  margin-top: auto;
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--c-border);
+}
+.kit-moq strong { color: var(--c-primary); }
+
+/* ============================================================
+   13. FORMULÁRIOS E INTEGRAÇÕES
+   ============================================================ */
+.form-group {
+  margin-bottom: var(--sp-5);
+}
+.form-group label {
+  display: block;
+  font-size: .88rem;
+  font-weight: var(--fw-medium);
+  color: var(--c-gray-dk);
+  margin-bottom: var(--sp-2);
+}
+.form-group label span { color: var(--c-accent); }
+.form-control {
+  width: 100%;
+  padding: .8rem 1rem;
+  border: 1.5px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-white);
+  color: var(--c-dark);
+  font-size: .95rem;
+  transition: border var(--tr-fast), box-shadow var(--tr-fast);
+  outline: none;
+}
+.form-control:focus {
+  border-color: var(--c-primary);
+  box-shadow: 0 0 0 3px rgba(30,58,95,.08);
+}
+.form-control::placeholder { color: var(--c-gray-lt); }
+textarea.form-control { resize: vertical; min-height: 120px; }
+select.form-control { cursor: pointer; }
+.form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-5); }
+.form-note { font-size: .78rem; color: var(--c-gray); margin-top: var(--sp-3); }
+
+/* Container do formulário HubSpot / Mailchimp */
+.hs-form-wrapper,
+.mc-form-wrapper {
+  background: var(--c-white);
+  border-radius: var(--r-xl);
+  padding: var(--sp-10);
+  box-shadow: var(--sh-lg);
+  border: 1px solid var(--c-border);
+}
+
+/* Campo de busca */
+.search-bar {
+  display: flex;
+  gap: var(--sp-3);
+  max-width: 600px;
+  margin: 0 auto var(--sp-8);
+}
+.search-bar input {
+  flex: 1;
+  padding: .85rem 1.25rem;
+  border: 1.5px solid var(--c-border);
+  border-radius: var(--r-lg);
+  font-size: 1rem;
+  outline: none;
+  box-shadow: var(--sh-sm);
+  transition: border var(--tr-fast);
+}
+.search-bar input:focus { border-color: var(--c-primary); }
+.search-bar button {
+  padding: .85rem 1.5rem;
+  background: var(--c-primary);
+  color: var(--c-white);
+  border-radius: var(--r-lg);
+  font-weight: var(--fw-semi);
+  transition: background var(--tr-fast);
+}
+.search-bar button:hover { background: var(--c-primary-dk); }
+
+/* Filtros do catálogo */
+.catalog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  justify-content: center;
+  margin-bottom: var(--sp-10);
+}
+.filter-btn {
+  padding: var(--sp-2) var(--sp-5);
+  border-radius: var(--r-full);
+  border: 1.5px solid var(--c-border);
+  background: var(--c-white);
+  font-size: .88rem;
+  font-weight: var(--fw-medium);
+  color: var(--c-gray-dk);
+  cursor: pointer;
+  transition: all var(--tr-fast);
+}
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--c-primary);
+  border-color: var(--c-primary);
+  color: var(--c-white);
+}
+
+/* ============================================================
+   14. FAQ ACCORDION
+   ============================================================ */
+.faq-list { max-width: 760px; margin: 0 auto; }
+.faq-item {
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  margin-bottom: var(--sp-3);
+  overflow: hidden;
+  transition: box-shadow var(--tr-fast);
+}
+.faq-item.open { box-shadow: var(--sh-md); border-color: var(--c-primary); }
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-5) var(--sp-6);
+  cursor: pointer;
+  background: var(--c-white);
+  transition: background var(--tr-fast);
+}
+.faq-question:hover { background: var(--c-bg); }
+.faq-item.open .faq-question { background: var(--c-bg); }
+.faq-question h4 { font-size: 1rem; color: var(--c-dark); font-weight: var(--fw-semi); }
+.faq-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--r-full);
+  background: var(--c-bg-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: var(--fw-bold);
+  color: var(--c-primary);
+  flex-shrink: 0;
+  transition: transform var(--tr-base);
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); background: var(--c-primary); color: var(--c-white); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease, padding .3s ease;
+}
+.faq-item.open .faq-answer { max-height: 400px; }
+.faq-answer-inner {
+  padding: 0 var(--sp-6) var(--sp-6);
+}
+.faq-answer-inner p { margin: 0; font-size: .93rem; }
+
+/* ============================================================
+   15. SEÇÃO DE CONTATO
+   ============================================================ */
+.contato-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: var(--sp-12);
+  align-items: start;
+}
+.contato-info { display: flex; flex-direction: column; gap: var(--sp-5); }
+.contato-info-item {
+  display: flex;
+  gap: var(--sp-4);
+  align-items: flex-start;
+  padding: var(--sp-5);
+  background: var(--c-white);
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-card);
+  border: 1px solid var(--c-border);
+  transition: all var(--tr-fast);
+}
+.contato-info-item:hover { box-shadow: var(--sh-hvr); transform: translateX(4px); }
+.contato-info-item .ico {
+  width: 50px; height: 50px;
+  background: linear-gradient(135deg, var(--c-primary), var(--c-primary-lt));
+  border-radius: var(--r-lg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+.contato-info-item h4 { font-size: .88rem; color: var(--c-gray); font-weight: var(--fw-medium); margin-bottom: var(--sp-1); }
+.contato-info-item p { font-size: .98rem; color: var(--c-dark); font-weight: var(--fw-semi); margin: 0; }
+.contato-info-item a { color: var(--c-primary); }
+.contato-info-item a:hover { color: var(--c-accent); }
+
+/* Mapa placeholder */
+.map-placeholder {
+  width: 100%;
+  height: 320px;
+  background: var(--c-bg-alt);
+  border-radius: var(--r-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  border: 1.5px dashed var(--c-border);
+  color: var(--c-gray);
+  font-size: 2.5rem;
+}
+.map-placeholder p { font-size: .88rem; color: var(--c-gray); margin: 0; }
+
+/* ============================================================
+   16. SELOS DE CONFIANÇA
+   ============================================================ */
+.selos-section {
+  padding: var(--sp-12) 0;
+  background: var(--c-white);
+  border-top: 1px solid var(--c-border);
+  border-bottom: 1px solid var(--c-border);
+}
+.selos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--sp-8);
+}
+.selo-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-6);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-full);
+  background: var(--c-bg);
+}
+.selo-item .icon { font-size: 1.5rem; }
+.selo-item span { font-size: .85rem; font-weight: var(--fw-semi); color: var(--c-gray-dk); }
+
+/* Clientes / logos */
+.clients-section { padding: var(--sp-12) 0; }
+.clients-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--sp-8);
+}
+.client-logo {
+  height: 44px;
+  opacity: .45;
+  filter: grayscale(100%);
+  transition: all var(--tr-base);
+  /* TROQUE pela logo do cliente real */
+}
+.client-logo:hover { opacity: .85; filter: grayscale(0); }
+
+/* ============================================================
+   17. WHATSAPP FLUTUANTE
+   ============================================================ */
+.whatsapp-float {
+  position: fixed;
+  bottom: var(--sp-6);
+  right: var(--sp-6);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--sp-2);
+}
+.whatsapp-float-btn {
+  width: 58px;
+  height: 58px;
+  background: #25D366;
+  border-radius: var(--r-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,.45);
+  color: var(--c-white);
+  font-size: 1.6rem;
+  transition: transform var(--tr-base);
+  cursor: pointer;
+}
+.whatsapp-float-btn:hover { transform: scale(1.1); }
+.whatsapp-pulse {
+  animation: waPulse 2s infinite;
+}
+.whatsapp-tooltip {
+  background: var(--c-dark);
+  color: var(--c-white);
+  font-size: .8rem;
+  font-weight: var(--fw-medium);
+  padding: var(--sp-2) var(--sp-4);
+  border-radius: var(--r-full);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all var(--tr-base);
+  pointer-events: none;
+}
+.whatsapp-float:hover .whatsapp-tooltip { opacity: 1; transform: translateX(0); }
+
+/* ============================================================
+   18. ANIMAÇÕES E SCROLL REVEAL
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left  { transform: translateX(-30px); }
+.reveal-right { transform: translateX(30px); }
+.reveal-left.visible,
+.reveal-right.visible { transform: translateX(0); opacity: 1; }
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.4); opacity: .6; }
+}
+@keyframes waPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(37,211,102,.5); }
+  70%  { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+.float-anim { animation: float 4s ease-in-out infinite; }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeInUp .6s ease forwards; }
+
+/* Gradiente animado para fundos */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* CTA Banner destaque */
+.cta-banner {
+  background: linear-gradient(135deg, var(--c-primary) 0%, #1a3a6e 50%, var(--c-primary-lt) 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+  padding: var(--sp-16) 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(255,107,53,.2) 0%, transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,.05) 0%, transparent 40%);
+}
+.cta-banner .container { position: relative; z-index: 1; }
+.cta-banner h2 { color: var(--c-white); margin-bottom: var(--sp-4); }
+.cta-banner p  { color: rgba(255,255,255,.8); max-width: 580px; margin: 0 auto var(--sp-8); font-size: 1.08rem; }
+.cta-banner .cta-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-4); }
+
+/* Seção de benefícios */
+.beneficios-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-4);
+}
+.beneficio-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-4);
+  padding: var(--sp-4);
+  border-radius: var(--r-lg);
+  transition: background var(--tr-fast);
+}
+.beneficio-item:hover { background: var(--c-bg); }
+.beneficio-item .check {
+  width: 36px;
+  height: 36px;
+  background: rgba(46,125,50,.12);
+  border-radius: var(--r-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-success);
+  font-weight: var(--fw-bold);
+  flex-shrink: 0;
+  font-size: .9rem;
+}
+.beneficio-item h5 { font-size: .96rem; margin-bottom: var(--sp-1); }
+.beneficio-item p  { font-size: .84rem; margin: 0; }
+
+/* Seção sobre empresa */
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-16);
+  align-items: center;
+}
+.sobre-img {
+  position: relative;
+  border-radius: var(--r-2xl);
+  overflow: hidden;
+  box-shadow: var(--sh-xl);
+  /* TROQUE pela foto institucional da LLANA */
+}
+.sobre-img img { width: 100%; height: auto; display: block; }
+.sobre-badge {
+  position: absolute;
+  bottom: var(--sp-6);
+  left: var(--sp-6);
+  background: var(--c-white);
+  border-radius: var(--r-xl);
+  padding: var(--sp-4) var(--sp-5);
+  box-shadow: var(--sh-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+.sobre-badge .num { font-size: 1.8rem; font-weight: var(--fw-black); color: var(--c-primary); line-height: 1; }
+.sobre-badge .txt { font-size: .78rem; color: var(--c-gray); }
+.sobre-content .tag { margin-bottom: var(--sp-3); }
+.sobre-content h2 { margin-bottom: var(--sp-4); }
+.sobre-content > p { margin-bottom: var(--sp-6); }
+
+/* Número de destaque */
+.numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-1);
+}
+.number-item {
+  text-align: center;
+  padding: var(--sp-8) var(--sp-4);
+  border-right: 1px solid rgba(255,255,255,.1);
+}
+.number-item:last-child { border-right: none; }
+.number-item strong {
+  display: block;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: var(--fw-black);
+  color: var(--c-accent);
+  line-height: 1;
+  margin-bottom: var(--sp-2);
+}
+.number-item span { font-size: .85rem; color: rgba(255,255,255,.65); }
+
+/* ============================================================
+   19. RESPONSIVO
+   ============================================================ */
+@media (max-width: 1100px) {
+  .diferenciais-grid    { grid-template-columns: repeat(2, 1fr); }
+  .categorias-grid      { grid-template-columns: repeat(3, 1fr); }
+  .produtos-grid        { grid-template-columns: repeat(3, 1fr); }
+  .footer-grid          { grid-template-columns: 1fr 1fr; gap: var(--sp-8); }
+  .numbers-grid         { grid-template-columns: repeat(2, 1fr); }
+  .number-item          { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); }
+}
+
+@media (max-width: 900px) {
+  :root { --hdr-height: 64px; }
+  .main-nav,
+  .header-cta { display: none; }
+  .menu-toggle { display: flex; }
+
+  /* Mobile menu */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: var(--hdr-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--c-white);
+    padding: var(--sp-6);
+    overflow-y: auto;
+    z-index: 999;
+    flex-direction: column;
+    gap: var(--sp-2);
+    box-shadow: var(--sh-xl);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    display: block;
+    padding: var(--sp-4) var(--sp-5);
+    border-radius: var(--r-lg);
+    font-size: 1rem;
+    font-weight: var(--fw-medium);
+    color: var(--c-dark);
+    border: 1px solid var(--c-border);
+    transition: all var(--tr-fast);
+  }
+  .mobile-menu a:hover,
+  .mobile-menu a.active {
+    background: var(--c-primary);
+    color: var(--c-white);
+    border-color: var(--c-primary);
+  }
+  .mobile-menu-cta { margin-top: var(--sp-4); }
+
+  .hero { min-height: 75vh; }
+  .hero-split { grid-template-columns: 1fr; }
+  .hero-split-image { display: none; }
+  .hero-stats { flex-wrap: wrap; gap: var(--sp-6); }
+
+  .sobre-grid { grid-template-columns: 1fr; }
+  .contato-grid { grid-template-columns: 1fr; }
+  .kits-grid { grid-template-columns: repeat(2, 1fr); }
+  .campanhas-grid { grid-template-columns: repeat(2, 1fr); }
+  .produtos-grid { grid-template-columns: repeat(2, 1fr); }
+  .categorias-grid { grid-template-columns: repeat(2, 1fr); }
+  .form-grid-2 { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .section { padding: var(--sp-12) 0; }
+  .container { padding: 0 var(--sp-4); }
+  .hero h1 { font-size: 1.8rem; }
+  .hero p { font-size: 1rem; }
+  .hero-cta { flex-direction: column; }
+  .hero-cta .btn { width: 100%; justify-content: center; }
+
+  .kits-grid { grid-template-columns: 1fr; }
+  .campanhas-grid { grid-template-columns: 1fr; }
+  .produtos-grid { grid-template-columns: 1fr; }
+  .categorias-grid { grid-template-columns: 1fr; }
+  .diferenciais-grid { grid-template-columns: 1fr; }
+  .beneficios-list { grid-template-columns: 1fr; }
+  .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .page-banner { padding: var(--sp-10) 0; }
+  .cta-banner  { padding: var(--sp-10) 0; }
+  .hs-form-wrapper,
+  .mc-form-wrapper { padding: var(--sp-6); }
+
+  .search-bar { flex-direction: column; }
+  .footer-newsletter-form { flex-direction: column; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .whatsapp-float { bottom: var(--sp-4); right: var(--sp-4); }
+}

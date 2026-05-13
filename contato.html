@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  LLANA BRINDES — CONTATO (contato.html)
+  Arquivo: contato.html
+
+  Integrações disponíveis nesta página:
+  - HubSpot: descomente a seção #hubspot-embed e
+    configure em js/main.js (initHubSpotForm)
+  - Mailchimp: configure a action do form #mc-form
+  - Formulário nativo: #contact-form (validação via JS)
+  ============================================================
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- TROQUE: título e meta description para SEO -->
+  <title>Contato e Orçamento — LLANA Brindes Personalizados</title>
+  <meta name="description" content="Entre em contato com a LLANA e solicite seu orçamento de brindes personalizados. Resposta em até 2 horas." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  ⚡ Respondemos em até 2 horas — <a href="#formulario">Solicite seu orçamento agora</a>
+</div>
+
+<!-- HEADER -->
+<header class="site-header" id="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <!-- TROQUE: logomarca LLANA -->
+        <div class="logo-text">
+          <span class="brand">LL<span>ANA</span></span>
+          <span class="tagline">Brindes &amp; Campanhas</span>
+        </div>
+      </a>
+      <nav class="main-nav" aria-label="Menu principal">
+        <a href="index.html">Início</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="campanhas.html">Campanhas</a>
+        <a href="kits.html">Kits Promocionais</a>
+        <a href="contato.html" class="active">Contato</a>
+      </nav>
+      <div class="header-cta">
+        <!-- TROQUE: número do WhatsApp -->
+        <a href="https://wa.me/5511999999999" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">💬 WhatsApp</a>
+        <a href="#formulario" class="btn btn-primary btn-sm">Solicitar Orçamento</a>
+      </div>
+      <button class="menu-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <nav class="mobile-menu">
+    <a href="index.html">🏠 Início</a>
+    <a href="catalogo.html">📦 Catálogo de Brindes</a>
+    <a href="campanhas.html">📣 Mural de Campanhas</a>
+    <a href="kits.html">🎁 Kits Promocionais</a>
+    <a href="contato.html" class="active">✉️ Contato</a>
+    <div class="mobile-menu-cta">
+      <a href="https://wa.me/5511999999999" class="btn btn-whatsapp btn-full" style="margin-bottom:.75rem;" target="_blank">💬 WhatsApp</a>
+      <a href="#formulario" class="btn btn-primary btn-full">Solicitar Orçamento</a>
+    </div>
+  </nav>
+</header>
+<!-- FIM DO HEADER -->
+
+<main>
+
+  <!-- ============================================================
+       BANNER INTERNO
+       TROQUE: título e subtítulo
+       ============================================================ -->
+  <section class="page-banner">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Início</a>
+        <span>/</span>
+        <span>Contato</span>
+      </div>
+      <!-- TROQUE: título e texto do banner -->
+      <h1>Fale com a LLANA</h1>
+      <p>Nosso time está pronto para ajudar. Respondemos em até 2 horas úteis.</p>
+    </div>
+  </section>
+  <!-- FIM DO BANNER -->
+
+  <!-- ============================================================
+       INFORMAÇÕES DE CONTATO + FORMULÁRIO
+       ============================================================ -->
+  <section class="section" id="formulario">
+    <div class="container">
+      <div class="contato-grid">
+
+        <!-- Coluna 1: Informações de contato -->
+        <div class="contato-info">
+
+          <div class="reveal">
+            <span class="tag">Nossos canais</span>
+            <!-- TROQUE: título e texto de abertura -->
+            <h2 style="margin-bottom:1rem;">Estamos aqui para<br>atender você</h2>
+            <p>Escolha o canal que preferir. Atendemos de segunda a sexta, das 8h às 18h.</p>
+          </div>
+
+          <!-- Itens de contato — TROQUE por informações reais da LLANA -->
+          <div class="contato-info-item reveal">
+            <div class="ico">📞</div>
+            <div>
+              <h4>Telefone / WhatsApp</h4>
+              <!-- TROQUE: número real -->
+              <p><a href="tel:+5511999999999">(11) 99999-9999</a></p>
+            </div>
+          </div>
+
+          <div class="contato-info-item reveal">
+            <div class="ico">✉️</div>
+            <div>
+              <h4>E-mail</h4>
+              <!-- TROQUE: e-mail real -->
+              <p><a href="mailto:contato@llana.com.br">contato@llana.com.br</a></p>
+            </div>
+          </div>
+
+          <div class="contato-info-item reveal">
+            <div class="ico">📍</div>
+            <div>
+              <h4>Endereço</h4>
+              <!-- TROQUE: endereço real -->
+              <p>Rua Exemplo, 123 — Bairro<br>São Paulo, SP — CEP 00000-000</p>
+            </div>
+          </div>
+
+          <div class="contato-info-item reveal">
+            <div class="ico">🕐</div>
+            <div>
+              <h4>Horário de atendimento</h4>
+              <!-- TROQUE: horário real -->
+              <p>Segunda a Sexta: 8h às 18h<br>Sábado: 9h às 13h</p>
+            </div>
+          </div>
+
+          <!-- Redes sociais -->
+          <div class="reveal" style="padding:1.5rem;background:var(--c-bg);border-radius:16px;border:1px solid var(--c-border);">
+            <h4 style="margin-bottom:1rem;font-size:.9rem;color:var(--c-gray-dk);font-weight:600;">Siga a LLANA nas redes</h4>
+            <!-- TROQUE: links das redes sociais -->
+            <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+              <a href="#" class="btn btn-outline-dark btn-sm" target="_blank" rel="noopener">📷 Instagram</a>
+              <a href="#" class="btn btn-outline-dark btn-sm" target="_blank" rel="noopener">📘 Facebook</a>
+              <a href="#" class="btn btn-outline-dark btn-sm" target="_blank" rel="noopener">💼 LinkedIn</a>
+            </div>
+          </div>
+
+        </div>
+        <!-- Fim coluna de contato -->
+
+        <!-- Coluna 2: Formulário -->
+        <div class="reveal">
+
+          <!-- ================================================
+               OPÇÃO A — FORMULÁRIO NATIVO (padrão ativo)
+               Validação via js/main.js (#contact-form)
+               ================================================ -->
+          <div class="hs-form-wrapper" id="formulario-nativo">
+            <h3 style="margin-bottom:.5rem;color:var(--c-primary);">Solicite seu orçamento</h3>
+            <p style="margin-bottom:2rem;font-size:.9rem;color:var(--c-gray-dk);">
+              Preencha o formulário e um consultor entrará em contato em até 2 horas úteis.
+            </p>
+
+            <!-- id="contact-form" é usado pelo JS para validação -->
+            <form id="contact-form" novalidate>
+
+              <div class="form-grid-2">
+                <!-- TROQUE: labels e placeholders conforme necessário -->
+                <div class="form-group">
+                  <label for="nome">Nome completo <span>*</span></label>
+                  <input type="text" id="nome" name="nome" class="form-control" placeholder="Seu nome" required />
+                </div>
+                <div class="form-group">
+                  <label for="empresa">Empresa <span>*</span></label>
+                  <input type="text" id="empresa" name="empresa" class="form-control" placeholder="Nome da empresa" required />
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="email">E-mail <span>*</span></label>
+                  <input type="email" id="email" name="email" class="form-control" placeholder="seu@email.com.br" required />
+                </div>
+                <div class="form-group">
+                  <label for="telefone">Telefone / WhatsApp <span>*</span></label>
+                  <input type="tel" id="telefone" name="telefone" class="form-control" placeholder="(11) 99999-9999" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <!-- TROQUE: opções de interesse abaixo -->
+                <label for="interesse">Interesse principal <span>*</span></label>
+                <select id="interesse" name="interesse" class="form-control" required>
+                  <option value="">Selecione o que precisa...</option>
+                  <option value="brindes">Brindes Personalizados</option>
+                  <option value="kits">Kits Promocionais</option>
+                  <option value="campanhas">Campanhas Sazonais</option>
+                  <option value="onboarding">Kit Onboarding</option>
+                  <option value="evento">Brindes para Evento</option>
+                  <option value="outros">Outros / Tenho dúvidas</option>
+                </select>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="quantidade">Quantidade estimada</label>
+                  <input type="text" id="quantidade" name="quantidade" class="form-control" placeholder="Ex: 200 unidades" />
+                </div>
+                <div class="form-group">
+                  <label for="prazo">Prazo de entrega</label>
+                  <input type="text" id="prazo" name="prazo" class="form-control" placeholder="Ex: 15 dias" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="mensagem">Descreva sua necessidade</label>
+                <textarea id="mensagem" name="mensagem" class="form-control" placeholder="Conte mais sobre seu projeto, evento ou campanha..."></textarea>
+              </div>
+
+              <!-- Como nos conheceu — campo opcional para CRM -->
+              <div class="form-group">
+                <label for="como-conheceu">Como nos encontrou?</label>
+                <select id="como-conheceu" name="como-conheceu" class="form-control">
+                  <option value="">Selecione...</option>
+                  <option value="google">Google</option>
+                  <option value="instagram">Instagram</option>
+                  <option value="indicacao">Indicação</option>
+                  <option value="linkedin">LinkedIn</option>
+                  <option value="outros">Outros</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full btn-lg">
+                📨 Enviar solicitação de orçamento
+              </button>
+
+              <p class="form-note">
+                Ao enviar, você concorda com nossa
+                <a href="#" style="color:var(--c-primary);">Política de Privacidade</a>.
+                Seus dados não serão compartilhados com terceiros.
+              </p>
+
+            </form>
+          </div>
+          <!-- FIM DO FORMULÁRIO NATIVO -->
+
+          <!-- ================================================
+               OPÇÃO B — FORMULÁRIO HUBSPOT
+               Descomente este bloco e comente o bloco acima
+               para usar o formulário do HubSpot.
+
+               CONFIGURAÇÃO:
+               1. Configure HUBSPOT_PORTAL_ID e HUBSPOT_FORM_ID
+                  no arquivo js/main.js (função initHubSpotForm)
+               2. Descomente a chamada initHubSpotForm() no final
+                  do js/main.js
+               3. Substitua o bloco #formulario-nativo por este
+
+               INSTRUÇÕES DETALHADAS:
+               - Acesse app.hubspot.com
+               - Vá em Marketing > Forms
+               - Crie ou escolha um formulário
+               - Copie o Portal ID (em Settings > Account)
+               - Copie o Form ID (na URL do formulário ou em "Share")
+               ================================================
+
+          <div class="hs-form-wrapper">
+            <h3 style="margin-bottom:.5rem;color:var(--c-primary);">Solicite seu orçamento</h3>
+            <p style="margin-bottom:2rem;font-size:.9rem;">Formulário integrado ao HubSpot.</p>
+
+            ONDE O HUBSPOT RENDERIZA O FORMULÁRIO:
+            <div id="hubspot-form">
+              Carregando formulário...
+            </div>
+
+            INSTRUÇÃO: No final de js/main.js, descomente a linha:
+            // initHubSpotForm('hubspot-form');
+          </div>
+
+          -->
+          <!-- FIM DO BLOCO HUBSPOT -->
+
+        </div>
+        <!-- Fim coluna formulário -->
+
+      </div>
+    </div>
+  </section>
+  <!-- FIM DA SEÇÃO CONTATO -->
+
+  <!-- ============================================================
+       MAPA
+       TROQUE: substitua o placeholder pelo iframe real do Google Maps
+       ============================================================ -->
+  <section class="section section--alt" id="mapa">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Nossa localização</span>
+        <!-- TROQUE: título -->
+        <h2>Onde estamos</h2>
+      </div>
+
+      <!-- TROQUE: cole aqui o embed do Google Maps com o endereço real -->
+      <!-- Para obter: Google Maps > compartilhar > incorporar mapa > copiar iframe -->
+      <!--
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!...SEU_LINK_DO_MAPS..."
+        width="100%"
+        height="400"
+        style="border:0;border-radius:16px;display:block;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      -->
+
+      <!-- Placeholder enquanto não tem o mapa real -->
+      <div class="map-placeholder reveal">
+        <span>🗺️</span>
+        <!-- TROQUE: endereço real -->
+        <p>Rua Exemplo, 123 — São Paulo, SP</p>
+        <p style="font-size:.8rem;">Substitua este bloco pelo iframe do Google Maps</p>
+        <!-- TROQUE: link do Google Maps -->
+        <a href="https://maps.google.com" target="_blank" class="btn btn-outline-dark btn-sm" rel="noopener">
+          Ver no Google Maps
+        </a>
+      </div>
+
+    </div>
+  </section>
+  <!-- FIM DO MAPA -->
+
+  <!-- ============================================================
+       FAQ — PERGUNTAS FREQUENTES
+       TROQUE: perguntas e respostas abaixo
+       ============================================================ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Dúvidas frequentes</span>
+        <!-- TROQUE: título da seção -->
+        <h2>Perguntas frequentes</h2>
+        <p>Respondemos as principais dúvidas sobre pedidos, prazos e personalização.</p>
+      </div>
+
+      <!-- Cada .faq-item é um item do accordion.
+           Copie o bloco para adicionar novas perguntas. -->
+      <div class="faq-list">
+
+        <!-- PERGUNTA 1 — TROQUE: pergunta e resposta -->
+        <div class="faq-item reveal">
+          <div class="faq-question">
+            <h4>Qual é o pedido mínimo de brindes?</h4>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>
+                O pedido mínimo varia por produto. Para a maioria dos itens é a partir de
+                50 unidades. Kits promocionais podem ser feitos a partir de 10 unidades.
+                Entre em contato para verificar a quantidade mínima do produto desejado.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PERGUNTA 2 -->
+        <div class="faq-item reveal">
+          <div class="faq-question">
+            <h4>Qual o prazo de produção e entrega?</h4>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <!-- TROQUE: prazos reais da LLANA -->
+              <p>
+                O prazo médio de produção é de 7 a 15 dias úteis após a aprovação da arte,
+                dependendo do produto e da quantidade. A entrega via transportadora é
+                calculada separadamente por CEP. Temos opções de prazo expresso para casos urgentes.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PERGUNTA 3 -->
+        <div class="faq-item reveal">
+          <div class="faq-question">
+            <h4>Como funciona a personalização da logomarca?</h4>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>
+                Após o pedido, você envia o arquivo da sua logomarca (preferencialmente em
+                vetor — AI, EPS ou PDF). Nossa equipe cria um mockup com a aplicação no produto
+                e envia para sua aprovação. Só iniciamos a produção após sua confirmação.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PERGUNTA 4 -->
+        <div class="faq-item reveal">
+          <div class="faq-question">
+            <h4>Vocês emitem Nota Fiscal?</h4>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <!-- TROQUE: informações fiscais reais -->
+              <p>
+                Sim. Emitimos Nota Fiscal Eletrônica (NF-e) para pessoas jurídicas e
+                físicas. Nossa empresa é regularizada e devidamente cadastrada nos
+                órgãos competentes.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PERGUNTA 5 -->
+        <div class="faq-item reveal">
+          <div class="faq-question">
+            <h4>Posso ver uma amostra antes de fazer o pedido?</h4>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <!-- TROQUE: política de amostras -->
+              <p>
+                Para alguns produtos, é possível solicitar uma amostra sem personalização
+                antes de fechar o pedido. Entre em contato para verificar disponibilidade.
+                O custo da amostra pode ser abatido do pedido final.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PERGUNTA 6 -->
+        <div class="faq-item reveal">
+          <div class="faq-question">
+            <h4>Qual formato de arquivo devo enviar para a arte?</h4>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <!-- TROQUE: requisitos técnicos reais -->
+              <p>
+                Aceitamos arquivos em vetor (AI, EPS, CDR, PDF editável) ou raster em
+                alta resolução (PNG, JPEG acima de 300 DPI). Caso não tenha o arquivo
+                original, nossa equipe pode fazer a vetorização mediante consulta.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADICIONE MAIS PERGUNTAS ABAIXO:
+             Copie qualquer bloco .faq-item e altere a pergunta e resposta. -->
+
+      </div>
+
+      <!-- CTA ao final do FAQ -->
+      <div style="text-align:center;margin-top:3rem;" class="reveal">
+        <p style="margin-bottom:1rem;">Ainda tem dúvidas? Fale direto com nossa equipe:</p>
+        <!-- TROQUE: link e número do WhatsApp -->
+        <a href="https://wa.me/5511999999999" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">💬 Perguntar no WhatsApp</a>
+      </div>
+
+    </div>
+  </section>
+  <!-- FIM DO FAQ -->
+
+  <!-- ============================================================
+       NEWSLETTER — MAILCHIMP
+       TROQUE: action do formulário Mailchimp
+       ============================================================ -->
+  <section class="section section--alt" id="newsletter">
+    <div class="container">
+      <div style="max-width:620px;margin:0 auto;text-align:center;" class="reveal">
+        <span class="tag">Newsletter</span>
+        <!-- TROQUE: título e texto -->
+        <h2>Receba novidades e promoções</h2>
+        <p>Cadastre-se e receba lançamentos, ofertas exclusivas e dicas de brindes direto no seu e-mail.</p>
+
+        <!-- FORMULÁRIO MAILCHIMP
+             TROQUE:
+             - action: substitua pela URL action do seu formulário Mailchimp
+             - O campo honeypot: substitua o valor de name pelo código do seu formulário
+             O id="mc-form" é obrigatório para o JS funcionar.
+        -->
+        <form id="mc-form" action="SEU_LINK_DO_MAILCHIMP_AQUI" method="post" novalidate
+              style="margin-top:2rem;">
+          <div style="display:flex;gap:.75rem;max-width:460px;margin:0 auto .75rem;">
+            <input
+              type="email"
+              name="EMAIL"
+              placeholder="seu@email.com.br"
+              required
+              style="flex:1;padding:.85rem 1.25rem;border:1.5px solid var(--c-border);border-radius:var(--r-lg);font-size:1rem;outline:none;"
+            />
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+          </div>
+          <!-- Honeypot antispam Mailchimp — NÃO REMOVA -->
+          <div style="position:absolute;left:-5000px;" aria-hidden="true">
+            <input type="text" name="b_TROQUE_PELO_CODIGO_DO_MAILCHIMP" tabindex="-1" value="">
+          </div>
+          <p id="mc-message" style="font-size:.85rem;min-height:1.2rem;"></p>
+          <p style="font-size:.78rem;color:var(--c-gray);margin:0;">Sem spam. Cancele a qualquer momento.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- FIM DA NEWSLETTER -->
+
+  <!-- CTA FINAL -->
+  <section class="cta-banner">
+    <div class="container">
+      <!-- TROQUE: textos do CTA final -->
+      <h2 class="reveal">Pronto para transformar<br>sua marca em brinde?</h2>
+      <p class="reveal">
+        Fale agora com um consultor LLANA e receba uma proposta<br>
+        personalizada em até 2 horas úteis.
+      </p>
+      <div class="cta-buttons reveal">
+        <!-- TROQUE: número do WhatsApp -->
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Quero%20solicitar%20um%20or%C3%A7amento."
+           class="btn btn-whatsapp btn-xl" target="_blank" rel="noopener">
+          💬 Falar agora no WhatsApp
+        </a>
+        <a href="#formulario" class="btn btn-outline btn-xl">
+          Preencher formulário
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">
+          <span class="brand">LL<span>ANA</span></span>
+          <div class="tagline">Brindes &amp; Campanhas</div>
+        </div>
+        <p style="margin-top:1rem;">Especialistas em brindes personalizados e kits promocionais.</p>
+        <div class="social-links">
+          <!-- TROQUE: links reais das redes sociais -->
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="LinkedIn">💼</a>
+          <a href="#" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <a href="index.html">Início</a>
+        <a href="catalogo.html">Catálogo de Brindes</a>
+        <a href="campanhas.html">Mural de Campanhas</a>
+        <a href="kits.html">Kits Promocionais</a>
+        <a href="contato.html">Contato</a>
+      </div>
+      <div class="footer-col">
+        <h4>Atendimento</h4>
+        <!-- TROQUE: informações reais -->
+        <a href="tel:+5511999999999">(11) 99999-9999</a>
+        <a href="mailto:contato@llana.com.br">contato@llana.com.br</a>
+        <a href="https://wa.me/5511999999999" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="#faq">Perguntas Frequentes</a>
+        <br>
+        <p style="font-size:.82rem;margin-top:.5rem;">Seg-Sex: 8h às 18h<br>Sáb: 9h às 13h</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <div class="footer-contact-item">
+          <div class="ico">📍</div>
+          <div><strong>Endereço</strong><p>Rua Exemplo, 123 — São Paulo, SP</p></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="ico">📞</div>
+          <div><strong>WhatsApp</strong><p><a href="tel:+5511999999999">(11) 99999-9999</a></p></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="ico">✉️</div>
+          <div><strong>E-mail</strong><p><a href="mailto:contato@llana.com.br">contato@llana.com.br</a></p></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 LLANA Brindes. Todos os direitos reservados.</span>
+      <span><a href="#">Política de Privacidade</a> &nbsp;|&nbsp; <a href="#">Termos de Uso</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="whatsapp-float">
+  <span class="whatsapp-tooltip">Fale conosco!</span>
+  <a href="https://wa.me/5511999999999" class="whatsapp-float-btn whatsapp-pulse" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

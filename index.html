@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  LLANA BRINDES — PÁGINA PRINCIPAL (index.html)
+  Arquivo: index.html
+
+  COMO USAR NO WORDPRESS:
+  1. Cole o conteúdo entre <body> e </body> em um bloco HTML
+  2. Inclua o CSS via Appearance > Customize > Additional CSS
+     (ou adicione o link para css/style.css no header do tema)
+  3. Inclua o JS via um plugin de "Header & Footer Scripts"
+     ou ao final do arquivo functions.php do tema
+  4. Troque todos os links href="*.html" pelos permalinks reais das páginas
+  ============================================================
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- TROQUE: título e descrição da página para SEO -->
+  <title>LLANA Brindes — Brindes Personalizados e Kits Promocionais</title>
+  <meta name="description" content="Brindes personalizados, kits promocionais e campanhas corporativas para sua marca. Solicite seu orçamento com a LLANA." />
+  <!-- Link do CSS global -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- TROQUE: link da favicon -->
+  <!-- <link rel="icon" type="image/png" href="img/favicon.png" /> -->
+</head>
+<body>
+
+<!-- ============================================================
+     TOP BAR — FAIXA SUPERIOR DE DESTAQUE
+     TROQUE: texto promocional ou número de telefone
+     ============================================================ -->
+<div class="top-bar">
+  🎁 Brindes personalizados com sua marca — <a href="contato.html">Solicite um orçamento gratuito</a>
+</div>
+
+<!-- ============================================================
+     HEADER — CABEÇALHO GLOBAL
+     Replicar em todas as páginas
+     ============================================================ -->
+<header class="site-header" id="header">
+  <div class="container">
+    <div class="header-inner">
+
+      <!-- LOGO LLANA — TROQUE pela imagem real da logomarca -->
+      <a href="index.html" class="logo">
+        <!-- Opção 1: Imagem da logo -->
+        <!-- <img src="img/logo-llana.png" alt="LLANA Brindes — Brindes Personalizados"> -->
+        <!-- Opção 2: Logo em texto (use até ter a imagem) -->
+        <div class="logo-text">
+          <span class="brand">LL<span>ANA</span></span>
+          <span class="tagline">Brindes &amp; Campanhas</span>
+        </div>
+      </a>
+
+      <!-- NAVEGAÇÃO DESKTOP -->
+      <nav class="main-nav" aria-label="Menu principal">
+        <a href="index.html" class="active">Início</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="campanhas.html">Campanhas</a>
+        <a href="kits.html">Kits Promocionais</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+
+      <!-- CTA DO HEADER -->
+      <div class="header-cta">
+        <!-- TROQUE: link e número do WhatsApp -->
+        <a href="https://wa.me/5511999999999" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">
+          💬 WhatsApp
+        </a>
+        <a href="contato.html" class="btn btn-primary btn-sm">Solicitar Orçamento</a>
+      </div>
+
+      <!-- TOGGLE DO MENU MOBILE -->
+      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MENU MOBILE (aparece em telas menores) -->
+  <nav class="mobile-menu" aria-label="Menu mobile">
+    <a href="index.html" class="active">🏠 Início</a>
+    <a href="catalogo.html">📦 Catálogo de Brindes</a>
+    <a href="campanhas.html">📣 Mural de Campanhas</a>
+    <a href="kits.html">🎁 Kits Promocionais</a>
+    <a href="contato.html">✉️ Contato</a>
+    <div class="mobile-menu-cta">
+      <!-- TROQUE: link do WhatsApp -->
+      <a href="https://wa.me/5511999999999" class="btn btn-whatsapp btn-full" style="margin-bottom:.75rem;" target="_blank" rel="noopener">💬 Falar no WhatsApp</a>
+      <a href="contato.html" class="btn btn-primary btn-full">Solicitar Orçamento</a>
+    </div>
+  </nav>
+</header>
+<!-- FIM DO HEADER -->
+
+<main>
+
+  <!-- ============================================================
+       HERO — SEÇÃO PRINCIPAL
+       TROQUE: título, subtítulo, CTA e imagem de fundo
+       ============================================================ -->
+  <section class="hero" id="hero">
+    <!-- TROQUE: imagem de fundo do hero — idealmente uma foto de produto com marca LLANA -->
+    <div class="hero-bg" style="background-image:url('https://placehold.co/1920x900/1a2e4a/1a2e4a?text=.')"></div>
+    <div class="hero-pattern"></div>
+
+    <div class="container">
+      <div class="hero-split">
+
+        <!-- Conteúdo do hero -->
+        <div class="hero-content fade-up">
+          <!-- TROQUE: tag destacada no topo do hero -->
+          <div class="hero-tag">
+            <span class="dot"></span>
+            Brindes que marcam presença
+          </div>
+
+          <!-- TROQUE: headline principal -->
+          <h1>Sua marca em<br><span>cada detalhe</span></h1>
+
+          <!-- TROQUE: subtítulo -->
+          <p>
+            Brindes personalizados, kits promocionais e campanhas corporativas
+            desenvolvidos para impactar, fidelizar e gerar resultados reais.
+          </p>
+
+          <!-- CTAs principais — TROQUE links -->
+          <div class="hero-cta">
+            <a href="contato.html" class="btn btn-primary btn-xl">
+              🎁 Solicitar Orçamento
+            </a>
+            <a href="catalogo.html" class="btn btn-outline btn-xl">
+              Ver Catálogo
+            </a>
+          </div>
+
+          <!-- Números de destaque — TROQUE os valores reais -->
+          <div class="hero-stats">
+            <div class="hero-stat-item">
+              <strong data-count="500" data-suffix="+">500+</strong>
+              <span>Clientes atendidos</span>
+            </div>
+            <div class="hero-stat-item">
+              <strong data-count="1200" data-suffix="+">1.200+</strong>
+              <span>Produtos no catálogo</span>
+            </div>
+            <div class="hero-stat-item">
+              <strong data-count="10" data-suffix=" anos">10 anos</strong>
+              <span>De experiência</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imagem lateral do hero — TROQUE pelo mockup de produto com logo LLANA -->
+        <div class="hero-split-image float-anim">
+          <!--
+            MOCKUP DO PRODUTO:
+            Substitua pela imagem de produto com a LOGOMARCA LLANA APLICADA
+            (como se fosse a gravação/personalização sobre o brinde).
+            Tamanho sugerido: 600x700px
+          -->
+          <img
+            src="https://placehold.co/600x700/FFFFFF/1E3A5F?text=PRODUTO+%0ACOM+LOGO+LLANA"
+            alt="Brinde personalizado LLANA — substitua por mockup real"
+            style="border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,.25);"
+          />
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- FIM DO HERO -->
+
+  <!-- ============================================================
+       SELOS DE CONFIANÇA
+       TROQUE: selos de acordo com os diferenciais da LLANA
+       ============================================================ -->
+  <section class="selos-section">
+    <div class="container">
+      <div class="selos-grid">
+        <!-- TROQUE: selos abaixo pelos reais da empresa -->
+        <div class="selo-item reveal">
+          <span class="icon">🚚</span>
+          <span>Entrega em todo Brasil</span>
+        </div>
+        <div class="selo-item reveal">
+          <span class="icon">🎨</span>
+          <span>Personalização exclusiva</span>
+        </div>
+        <div class="selo-item reveal">
+          <span class="icon">⚡</span>
+          <span>Prazo garantido</span>
+        </div>
+        <div class="selo-item reveal">
+          <span class="icon">🏆</span>
+          <span>+10 anos no mercado</span>
+        </div>
+        <div class="selo-item reveal">
+          <span class="icon">💼</span>
+          <span>Atendimento B2B</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- FIM DOS SELOS -->
+
+  <!-- ============================================================
+       CATEGORIAS EM DESTAQUE
+       TROQUE: imagens, nomes e links das categorias
+       ============================================================ -->
+  <section class="section" id="categorias">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Nossos produtos</span>
+        <!-- TROQUE: título da seção -->
+        <h2>Explore nossas categorias</h2>
+        <p>Do brinde simples ao kit premium — temos a solução certa para cada campanha e evento.</p>
+      </div>
+
+      <div class="categorias-grid">
+
+        <!-- Categoria 1 — TROQUE: imagem, nome e link -->
+        <!-- IMAGEM: substitua pelo mockup da categoria COM LOGOMARCA LLANA aplicada no produto -->
+        <a href="catalogo.html?cat=canetas" class="categoria-card reveal">
+          <div class="cat-img-placeholder" style="background:linear-gradient(135deg,#E3F2FD,#BBDEFB)">✏️</div>
+          <!-- <img src="img/cat-canetas.jpg" alt="Canetas personalizadas" class="cat-img"> -->
+          <div class="cat-overlay">
+            <h3>Canetas e Escritório</h3>
+            <span>+120 opções</span>
+          </div>
+          <span class="cat-badge">Popular</span>
+        </a>
+
+        <!-- Categoria 2 -->
+        <a href="catalogo.html?cat=bolsas" class="categoria-card reveal">
+          <div class="cat-img-placeholder" style="background:linear-gradient(135deg,#F3E5F5,#E1BEE7)">👜</div>
+          <!-- <img src="img/cat-bolsas.jpg" alt="Bolsas e mochilas personalizadas" class="cat-img"> -->
+          <div class="cat-overlay">
+            <h3>Bolsas e Mochilas</h3>
+            <span>+85 opções</span>
+          </div>
+        </a>
+
+        <!-- Categoria 3 -->
+        <a href="catalogo.html?cat=copos" class="categoria-card reveal">
+          <div class="cat-img-placeholder" style="background:linear-gradient(135deg,#E8F5E9,#C8E6C9)">☕</div>
+          <!-- <img src="img/cat-copos.jpg" alt="Copos e garrafas personalizadas" class="cat-img"> -->
+          <div class="cat-overlay">
+            <h3>Copos e Garrafas</h3>
+            <span>+200 opções</span>
+          </div>
+          <span class="cat-badge">Novo</span>
+        </a>
+
+        <!-- Categoria 4 -->
+        <a href="catalogo.html?cat=agenda" class="categoria-card reveal">
+          <div class="cat-img-placeholder" style="background:linear-gradient(135deg,#FFF8E1,#FFECB3)">📓</div>
+          <!-- <img src="img/cat-agenda.jpg" alt="Agendas e cadernos personalizados" class="cat-img"> -->
+          <div class="cat-overlay">
+            <h3>Agendas e Cadernos</h3>
+            <span>+95 opções</span>
+          </div>
+        </a>
+
+      </div>
+
+      <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+        <!-- TROQUE: link do catálogo completo -->
+        <a href="catalogo.html" class="btn btn-outline-dark btn-lg">Ver catálogo completo →</a>
+      </div>
+    </div>
+  </section>
+  <!-- FIM DAS CATEGORIAS -->
+
+  <!-- ============================================================
+       DIFERENCIAIS
+       TROQUE: títulos, textos e emojis dos diferenciais
+       ============================================================ -->
+  <section class="section section--alt" id="diferenciais">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Por que escolher a LLANA</span>
+        <!-- TROQUE: título -->
+        <h2>Diferenciais que fazem a diferença</h2>
+        <p>Cada detalhe do nosso processo é pensado para entregar o melhor resultado para a sua marca.</p>
+      </div>
+
+      <div class="diferenciais-grid">
+
+        <!-- Diferencial 1 — TROQUE: ícone, título e texto -->
+        <div class="diferencial-card reveal">
+          <div class="ico-wrap">🎨</div>
+          <h4>Personalização exclusiva</h4>
+          <p>Aplicamos sua marca com qualidade gráfica premium em todos os produtos do catálogo.</p>
+        </div>
+
+        <!-- Diferencial 2 -->
+        <div class="diferencial-card reveal">
+          <div class="ico-wrap">📦</div>
+          <h4>Variedade de produtos</h4>
+          <p>Mais de 1.200 itens disponíveis, dos básicos corporativos aos mais premium e inovadores.</p>
+        </div>
+
+        <!-- Diferencial 3 -->
+        <div class="diferencial-card reveal">
+          <div class="ico-wrap">⚡</div>
+          <h4>Prazo garantido</h4>
+          <p>Cumprimos prazos mesmo em pedidos urgentes. Planejamos cada etapa para não falhar com você.</p>
+        </div>
+
+        <!-- Diferencial 4 -->
+        <div class="diferencial-card reveal">
+          <div class="ico-wrap">🤝</div>
+          <h4>Consultoria especializada</h4>
+          <p>Nosso time ajuda a escolher o brinde certo para cada campanha, evento e objetivo.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- FIM DOS DIFERENCIAIS -->
+
+  <!-- ============================================================
+       SEÇÃO SOBRE / BENEFÍCIOS
+       TROQUE: texto institucional, imagem e números reais
+       ============================================================ -->
+  <section class="section" id="sobre">
+    <div class="container">
+      <div class="sobre-grid">
+
+        <!-- Imagem lateral — TROQUE pela foto da empresa ou produto com logo LLANA -->
+        <div class="sobre-img reveal-left">
+          <!--
+            SUGESTÃO DE MOCKUP:
+            Use aqui uma composição de produtos com a LOGOMARCA LLANA aplicada.
+            Tamanho sugerido: 560x680px
+          -->
+          <img
+            src="https://placehold.co/560x680/EFF3F8/1E3A5F?text=IMAGEM+%0AINSTITUCIONAL+%0ALLANA"
+            alt="LLANA Brindes — imagem institucional"
+          />
+          <!-- TROQUE: número e texto do badge sobreposto na imagem -->
+          <div class="sobre-badge">
+            <span class="num">+10</span>
+            <span class="txt">anos de<br>mercado</span>
+          </div>
+        </div>
+
+        <!-- Conteúdo da seção sobre -->
+        <div class="sobre-content reveal-right">
+          <span class="tag">Sobre a LLANA</span>
+          <!-- TROQUE: título e texto institucional -->
+          <h2>Especialistas em transformar marcas em experiências</h2>
+          <p>
+            A LLANA é uma empresa especializada em brindes corporativos personalizados,
+            kits promocionais e campanhas de incentivo. Atendemos marcas que entendem
+            o poder de um brinde bem feito.
+          </p>
+          <p>
+            Com mais de uma década de experiência, oferecemos um processo completo:
+            da escolha do produto até a entrega final, sempre com sua identidade visual
+            aplicada com precisão e qualidade.
+          </p>
+
+          <!-- Benefícios em lista — TROQUE pelos reais da LLANA -->
+          <div class="beneficios-list">
+            <div class="beneficio-item">
+              <div class="check">✓</div>
+              <div>
+                <h5>Arte e aprovação inclusa</h5>
+                <p>Nossa equipe de design cuida da arte e envia para aprovação antes de produzir.</p>
+              </div>
+            </div>
+            <div class="beneficio-item">
+              <div class="check">✓</div>
+              <div>
+                <h5>Pedido mínimo acessível</h5>
+                <p>Produzimos a partir de quantidades pequenas, ideal para qualquer orçamento.</p>
+              </div>
+            </div>
+            <div class="beneficio-item">
+              <div class="check">✓</div>
+              <div>
+                <h5>Entrega nacional</h5>
+                <p>Enviamos para todo o Brasil com rastreamento e embalagem segura.</p>
+              </div>
+            </div>
+            <div class="beneficio-item">
+              <div class="check">✓</div>
+              <div>
+                <h5>Nota fiscal garantida</h5>
+                <p>Empresa regularizada, com NF para pessoa jurídica e física.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:2rem;" class="reveal">
+            <a href="contato.html" class="btn btn-primary btn-lg">Falar com um consultor →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- FIM DA SEÇÃO SOBRE -->
+
+  <!-- ============================================================
+       NÚMEROS DA EMPRESA
+       TROQUE: valores reais
+       ============================================================ -->
+  <section class="section--dark" style="padding:4rem 0;">
+    <div class="container">
+      <div class="numbers-grid">
+        <!-- TROQUE: data-count e texto de cada métrica -->
+        <div class="number-item reveal">
+          <strong data-count="500" data-suffix="+">500+</strong>
+          <span>Empresas atendidas</span>
+        </div>
+        <div class="number-item reveal">
+          <strong data-count="1200" data-suffix="+">1.200+</strong>
+          <span>Produtos disponíveis</span>
+        </div>
+        <div class="number-item reveal">
+          <strong data-count="98" data-suffix="%">98%</strong>
+          <span>Índice de satisfação</span>
+        </div>
+        <div class="number-item reveal">
+          <strong data-count="10" data-suffix="">10</strong>
+          <span>Anos de experiência</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- FIM DOS NÚMEROS -->
+
+  <!-- ============================================================
+       CTA CAMPANHAS PROMOCIONAIS
+       TROQUE: título, texto e link
+       ============================================================ -->
+  <section class="section" id="campanhas-cta">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;" class="reveal">
+
+        <!-- Imagem da campanha — TROQUE pelo material de campanha com marca LLANA -->
+        <div style="border-radius:20px;overflow:hidden;box-shadow:var(--sh-xl);">
+          <!--
+            IMAGEM DE CAMPANHA:
+            Coloque aqui uma peça de campanha ou mural visual com a LOGOMARCA LLANA.
+            Tamanho sugerido: 600x400px
+          -->
+          <img
+            src="https://placehold.co/600x400/1E3A5F/FFFFFF?text=CAMPANHA+%0ALLANA"
+            alt="Mural de Campanhas LLANA"
+            style="width:100%;display:block;"
+          />
+        </div>
+
+        <div>
+          <span class="tag">Mural de Campanhas</span>
+          <!-- TROQUE: título e texto da chamada para campanhas -->
+          <h2>Peças prontas para<br>suas campanhas</h2>
+          <p>
+            Acesse nosso mural com campanhas sazonais, materiais para datas comemorativas
+            e kits temáticos prontos para ativar com sua marca.
+          </p>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;">
+            <a href="campanhas.html" class="btn btn-primary btn-lg">Ver Campanhas</a>
+            <a href="contato.html" class="btn btn-outline-dark btn-lg">Solicitar Material</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- FIM DO CTA CAMPANHAS -->
+
+  <!-- ============================================================
+       CTA KITS PROMOCIONAIS
+       TROQUE: título, texto, imagem e link
+       ============================================================ -->
+  <section class="section section--alt" id="kits-cta">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;" class="reveal">
+
+        <div>
+          <span class="tag">Kits Promocionais</span>
+          <!-- TROQUE: título e texto dos kits -->
+          <h2>Kits montados e<br>prontos para usar</h2>
+          <p>
+            Soluções completas para eventos, onboarding, incentivo de equipes
+            e campanhas corporativas. Kits personalizados com a identidade da sua marca.
+          </p>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;">
+            <a href="kits.html" class="btn btn-primary btn-lg">Ver Kits</a>
+            <a href="contato.html" class="btn btn-outline-dark btn-lg">Montar Kit Personalizado</a>
+          </div>
+        </div>
+
+        <!-- Imagem do kit — TROQUE pelo mockup de kit com logo LLANA -->
+        <div style="border-radius:20px;overflow:hidden;box-shadow:var(--sh-xl);">
+          <!--
+            MOCKUP DE KIT:
+            Coloque aqui uma foto de kit de brindes com a LOGOMARCA LLANA aplicada.
+            Sugestão: vista de cima dos itens do kit dispostos sobre uma superfície.
+            Tamanho sugerido: 600x400px
+          -->
+          <img
+            src="https://placehold.co/600x400/FF6B35/FFFFFF?text=KIT+PROMOCIONAL+%0ALLANA"
+            alt="Kit Promocional LLANA — substitua por foto real"
+            style="width:100%;display:block;"
+          />
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- FIM DO CTA KITS -->
+
+  <!-- ============================================================
+       FORMULÁRIO DE CAPTAÇÃO DE LEADS (MAILCHIMP)
+       TROQUE: action do formulário, textos e campos
+       ============================================================ -->
+  <section class="section" id="newsletter">
+    <div class="container">
+      <div style="max-width:680px;margin:0 auto;text-align:center;" class="reveal">
+        <span class="tag">Fique por dentro</span>
+        <!-- TROQUE: título e texto do formulário de newsletter -->
+        <h2>Receba novidades e<br>ofertas em primeira mão</h2>
+        <p>
+          Cadastre seu e-mail e receba lançamentos, campanhas sazonais
+          e condições especiais diretamente na sua caixa de entrada.
+        </p>
+
+        <!-- FORMULÁRIO MAILCHIMP
+             TROQUE:
+             1. id="mc-form" (mantenha para o JS funcionar)
+             2. action="" — substitua pela URL de action do seu formulário Mailchimp
+                (Mailchimp > Audience > Signup forms > Embedded forms > copie a action)
+             3. O campo name="EMAIL" é padrão do Mailchimp — não troque o name
+        -->
+        <form id="mc-form" action="SEU_LINK_DO_MAILCHIMP_AQUI" method="post" novalidate
+              style="margin-top:2rem;">
+          <div style="display:flex;gap:.75rem;max-width:480px;margin:0 auto .75rem;">
+            <input
+              type="email"
+              name="EMAIL"
+              placeholder="Seu melhor e-mail"
+              required
+              style="flex:1;padding:.85rem 1.25rem;border:1.5px solid var(--c-border);border-radius:var(--r-lg);font-size:1rem;outline:none;"
+            />
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+          </div>
+          <!-- Honeypot antispam do Mailchimp — NÃO REMOVA este campo -->
+          <div style="position:absolute;left:-5000px;" aria-hidden="true">
+            <input type="text" name="b_TROQUE_PELO_CODIGO_DO_MAILCHIMP" tabindex="-1" value="">
+          </div>
+          <!-- Mensagem de feedback para o usuário -->
+          <p id="mc-message" style="font-size:.85rem;min-height:1.2rem;"></p>
+          <p style="font-size:.78rem;color:var(--c-gray);margin:0;">
+            Sem spam. Cancele quando quiser. Sua privacidade é respeitada.
+          </p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+  <!-- FIM DO FORMULÁRIO DE CAPTAÇÃO -->
+
+  <!-- ============================================================
+       CTA BANNER FINAL
+       TROQUE: título, texto e links dos botões
+       ============================================================ -->
+  <section class="cta-banner" id="cta-final">
+    <div class="container">
+      <!-- TROQUE: título e subtítulo do CTA final -->
+      <h2 class="reveal">Pronto para ativar sua marca<br>com brindes de impacto?</h2>
+      <p class="reveal">
+        Fale com um consultor especializado e receba uma proposta personalizada
+        para sua campanha, evento ou ação corporativa.
+      </p>
+      <div class="cta-buttons reveal">
+        <!-- TROQUE: link e número do WhatsApp, link de contato -->
+        <a href="https://wa.me/5511999999999" class="btn btn-whatsapp btn-xl" target="_blank" rel="noopener">
+          💬 Falar no WhatsApp
+        </a>
+        <a href="contato.html" class="btn btn-outline btn-xl">
+          Solicitar Orçamento
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- FIM DO CTA BANNER -->
+
+</main>
+
+<!-- ============================================================
+     FOOTER — RODAPÉ GLOBAL
+     Replicar em todas as páginas
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Coluna 1: Sobre a empresa -->
+      <div class="footer-col">
+        <!-- TROQUE: logo, tagline e texto sobre a empresa -->
+        <div class="footer-logo">
+          <!-- <img src="img/logo-llana-branca.png" alt="LLANA Brindes" style="height:40px;margin-bottom:1rem;"> -->
+          <span class="brand">LL<span>ANA</span></span>
+          <div class="tagline">Brindes &amp; Campanhas</div>
+        </div>
+        <p style="margin-top:1rem;">
+          Especialistas em brindes personalizados, kits promocionais e campanhas
+          corporativas para marcas que querem impactar.
+        </p>
+        <!-- TROQUE: links das redes sociais -->
+        <div class="social-links">
+          <a href="#" aria-label="Instagram" title="Instagram">📷</a>
+          <a href="#" aria-label="Facebook" title="Facebook">📘</a>
+          <a href="#" aria-label="LinkedIn" title="LinkedIn">💼</a>
+          <a href="#" aria-label="WhatsApp" title="WhatsApp">💬</a>
+        </div>
+      </div>
+
+      <!-- Coluna 2: Links rápidos -->
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <!-- TROQUE: links do menu -->
+        <a href="index.html">Início</a>
+        <a href="catalogo.html">Catálogo de Brindes</a>
+        <a href="campanhas.html">Mural de Campanhas</a>
+        <a href="kits.html">Kits Promocionais</a>
+        <a href="contato.html">Contato</a>
+        <a href="contato.html#orcamento">Solicitar Orçamento</a>
+      </div>
+
+      <!-- Coluna 3: Categorias -->
+      <div class="footer-col">
+        <h4>Categorias</h4>
+        <!-- TROQUE: links das categorias reais -->
+        <a href="catalogo.html?cat=canetas">Canetas e Escritório</a>
+        <a href="catalogo.html?cat=bolsas">Bolsas e Mochilas</a>
+        <a href="catalogo.html?cat=copos">Copos e Garrafas</a>
+        <a href="catalogo.html?cat=agenda">Agendas e Cadernos</a>
+        <a href="catalogo.html?cat=camisetas">Camisetas e Uniformes</a>
+        <a href="catalogo.html?cat=tecnologia">Tecnologia</a>
+      </div>
+
+      <!-- Coluna 4: Contato -->
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <!-- TROQUE: informações de contato reais -->
+        <div class="footer-contact-item">
+          <div class="ico">📍</div>
+          <div>
+            <strong>Endereço</strong>
+            <p>Rua Exemplo, 123 — São Paulo, SP</p>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="ico">📞</div>
+          <div>
+            <strong>Telefone / WhatsApp</strong>
+            <!-- TROQUE: telefone real -->
+            <p><a href="tel:+5511999999999">(11) 99999-9999</a></p>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="ico">✉️</div>
+          <div>
+            <strong>E-mail</strong>
+            <!-- TROQUE: e-mail real -->
+            <p><a href="mailto:contato@llana.com.br">contato@llana.com.br</a></p>
+          </div>
+        </div>
+
+        <!-- Newsletter no rodapé -->
+        <div class="footer-newsletter">
+          <p style="font-size:.82rem;margin-bottom:.5rem;">Receba novidades por e-mail:</p>
+          <!-- TROQUE: action pelo link real do Mailchimp -->
+          <form class="footer-newsletter-form" id="footer-mc-form" action="SEU_LINK_MAILCHIMP" method="post">
+            <input type="email" name="EMAIL" placeholder="seu@email.com" required />
+            <button type="submit" class="btn btn-primary btn-sm">OK</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Barra de copyright -->
+    <div class="footer-bottom">
+      <!-- TROQUE: ano, nome e links de política -->
+      <span>© 2025 LLANA Brindes. Todos os direitos reservados.</span>
+      <span>
+        <a href="#">Política de Privacidade</a> &nbsp;|&nbsp;
+        <a href="#">Termos de Uso</a>
+      </span>
+    </div>
+
+  </div>
+</footer>
+<!-- FIM DO FOOTER -->
+
+<!-- ============================================================
+     WHATSAPP FLUTUANTE
+     TROQUE: número e mensagem padrão do WhatsApp
+     Configuração adicional em js/main.js (linha initWhatsApp)
+     ============================================================ -->
+<div class="whatsapp-float">
+  <span class="whatsapp-tooltip">Fale conosco!</span>
+  <!-- TROQUE: href com número real -->
+  <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+     class="whatsapp-float-btn whatsapp-pulse"
+     target="_blank"
+     rel="noopener"
+     aria-label="Falar pelo WhatsApp">
+    💬
+  </a>
+</div>
+
+<!-- Scripts -->
+<script src="js/main.js"></script>
+
+</body>
+</html>
