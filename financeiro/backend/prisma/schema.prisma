@@ -3,13 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
-
-// ============================================================
-// AUTENTICAÇÃO E CONTROLE DE ACESSO
-// ============================================================
 
 model Usuario {
   id            String    @id @default(uuid())
@@ -34,8 +30,8 @@ model Empresa {
   cnpj                  String    @unique
   inscricaoEstadual     String?
   inscricaoMunicipal    String?
-  regimeTributario      RegimeTributario @default(SIMPLES_NACIONAL)
-  tipoEmpresa           TipoEmpresa      @default(SERVICO)
+  regimeTributario      String    @default("SIMPLES_NACIONAL")
+  tipoEmpresa           String    @default("SERVICO")
   cnaePrincipal         String?
   logradouro            String?
   numero                String?
@@ -52,11 +48,8 @@ model Empresa {
   createdAt             DateTime  @default(now())
   updatedAt             DateTime  @updatedAt
 
-  // Configurações de faturamento
   configFaturamento     ConfigFaturamento?
-  // Configurações tributárias
   configTributaria      ConfigTributaria?
-
   empresasUsuario       EmpresaUsuario[]
   pessoas               Pessoa[]
   planoContas           PlanoContas[]
@@ -77,7 +70,7 @@ model EmpresaUsuario {
   id        String   @id @default(uuid())
   empresaId String
   usuarioId String
-  perfil    PerfilAcesso @default(OPERADOR)
+  perfil    String   @default("OPERADOR")
   ativo     Boolean  @default(true)
 
   empresa   Empresa  @relation(fields: [empresaId], references: [id])
@@ -87,32 +80,23 @@ model EmpresaUsuario {
   @@map("empresa_usuarios")
 }
 
-// ============================================================
-// CONFIGURAÇÕES
-// ============================================================
-
 model ConfigFaturamento {
   id                    String    @id @default(uuid())
   empresaId             String    @unique
-  // NF-e
   emiteNFe              Boolean   @default(false)
   serieNFe              Int       @default(1)
   proximoNumeroNFe      Int       @default(1)
-  ambienteNFe           AmbienteFiscal @default(HOMOLOGACAO)
-  // NFS-e
+  ambienteNFe           String    @default("HOMOLOGACAO")
   emiteNFSe             Boolean   @default(false)
   serieNFSe             String    @default("1")
   proximoNumeroNFSe     Int       @default(1)
-  ambienteNFSe          AmbienteFiscal @default(HOMOLOGACAO)
-  codigoMunicipioNFSe   String    @default("3550308") // São Paulo
-  // NFC-e
+  ambienteNFSe          String    @default("HOMOLOGACAO")
+  codigoMunicipioNFSe   String    @default("3550308")
   emiteNFCe             Boolean   @default(false)
   serieNFCe             Int       @default(1)
   proximoNumeroNFCe     Int       @default(1)
-  // Boleto
   emiteBoleto           Boolean   @default(false)
   bancoBoletoCodigo     String?
-  // Outras configs
   diasVencimentoPadrao  Int       @default(30)
   observacaoPadraoNFe   String?
   observacaoPadraoNFSe  String?
@@ -127,24 +111,21 @@ model ConfigFaturamento {
 model ConfigTributaria {
   id                    String    @id @default(uuid())
   empresaId             String    @unique
-  // Tributos atuais
-  aliquotaIss           Decimal   @default(2.00)  @db.Decimal(5, 2)
-  aliquotaPis           Decimal   @default(0.65)  @db.Decimal(5, 2)
-  aliquotaCofins        Decimal   @default(3.00)  @db.Decimal(5, 2)
-  aliquotaCsll          Decimal   @default(1.00)  @db.Decimal(5, 2)
-  aliquotaIrpj          Decimal   @default(1.50)  @db.Decimal(5, 2)
-  aliquotaInss          Decimal   @default(0.00)  @db.Decimal(5, 2)
+  aliquotaIss           Decimal   @default(2.00)
+  aliquotaPis           Decimal   @default(0.65)
+  aliquotaCofins        Decimal   @default(3.00)
+  aliquotaCsll          Decimal   @default(1.00)
+  aliquotaIrpj          Decimal   @default(1.50)
+  aliquotaInss          Decimal   @default(0.00)
   retIdContribuinte     Boolean   @default(false)
-  // Reforma Tributária (vigência 2026+)
   preparadoReformaTrib  Boolean   @default(true)
-  aliquotaCbs           Decimal   @default(0.00)  @db.Decimal(5, 2) // substitui PIS+COFINS
-  aliquotaIbs           Decimal   @default(0.00)  @db.Decimal(5, 2) // substitui ICMS+ISS
-  aliquotaIs            Decimal   @default(0.00)  @db.Decimal(5, 2) // Imposto Seletivo
+  aliquotaCbs           Decimal   @default(0.00)
+  aliquotaIbs           Decimal   @default(0.00)
+  aliquotaIs            Decimal   @default(0.00)
   splitPayment          Boolean   @default(false)
-  // Simples Nacional
-  anexoSimples          AnexoSimples?
+  anexoSimples          String?
   faixaSimples          Int?
-  aliquotaEfetivaSimples Decimal? @db.Decimal(5, 2)
+  aliquotaEfetivaSimples Decimal?
   createdAt             DateTime  @default(now())
   updatedAt             DateTime  @updatedAt
 
@@ -153,30 +134,22 @@ model ConfigTributaria {
   @@map("config_tributaria")
 }
 
-// ============================================================
-// PESSOAS (PF e PJ) — CLIENTES, FORNECEDORES, ETC.
-// ============================================================
-
 model Pessoa {
   id                String    @id @default(uuid())
   empresaId         String
-  tipo              TipoPessoa @default(JURIDICA)
-  // PJ
+  tipo              String    @default("JURIDICA")
   razaoSocial       String?
   nomeFantasia      String?
   cnpj              String?
   inscricaoEstadual String?
   inscricaoMunicipal String?
-  // PF
   nome              String?
   cpf               String?
   rg                String?
   dataNascimento    DateTime?
-  // Contato
   email             String?
   telefone          String?
   celular           String?
-  // Endereço
   cep               String?
   logradouro        String?
   numero            String?
@@ -184,13 +157,11 @@ model Pessoa {
   bairro            String?
   municipio         String?
   uf                String?
-  // Classificação
   cliente           Boolean   @default(false)
   fornecedor        Boolean   @default(false)
   funcionario       Boolean   @default(false)
   transportadora    Boolean   @default(false)
-  // Financeiro
-  limiteCredito     Decimal?  @db.Decimal(15, 2)
+  limiteCredito     Decimal?
   diasPrazoPadrao   Int?
   observacao        String?
   ativo             Boolean   @default(true)
@@ -206,17 +177,13 @@ model Pessoa {
   @@map("pessoas")
 }
 
-// ============================================================
-// PLANO DE CONTAS
-// ============================================================
-
 model PlanoContas {
   id          String    @id @default(uuid())
   empresaId   String
   codigo      String
   descricao   String
-  tipo        TipoContaContabil @default(DESPESA)
-  natureza    NaturezaConta     @default(CREDORA)
+  tipo        String    @default("DESPESA")
+  natureza    String    @default("CREDORA")
   nivel       Int       @default(1)
   aceitaLancamento Boolean @default(true)
   contaPaiId  String?
@@ -233,10 +200,6 @@ model PlanoContas {
   @@unique([empresaId, codigo])
   @@map("plano_contas")
 }
-
-// ============================================================
-// CENTROS DE CUSTO
-// ============================================================
 
 model CentroCusto {
   id          String    @id @default(uuid())
@@ -255,10 +218,6 @@ model CentroCusto {
   @@map("centros_custo")
 }
 
-// ============================================================
-// CONTAS BANCÁRIAS
-// ============================================================
-
 model ContaBancaria {
   id              String    @id @default(uuid())
   empresaId       String
@@ -267,9 +226,9 @@ model ContaBancaria {
   codigoBanco     String?
   agencia         String?
   conta           String?
-  tipoConta       TipoConta @default(CORRENTE)
-  saldoInicial    Decimal   @default(0) @db.Decimal(15, 2)
-  saldoAtual      Decimal   @default(0) @db.Decimal(15, 2)
+  tipoConta       String    @default("CORRENTE")
+  saldoInicial    Decimal   @default(0)
+  saldoAtual      Decimal   @default(0)
   dataAbertura    DateTime?
   ativo           Boolean   @default(true)
   createdAt       DateTime  @default(now())
@@ -284,10 +243,6 @@ model ContaBancaria {
   @@map("contas_bancarias")
 }
 
-// ============================================================
-// CONTAS A RECEBER
-// ============================================================
-
 model ContaReceber {
   id                  String    @id @default(uuid())
   empresaId           String
@@ -295,28 +250,24 @@ model ContaReceber {
   planoContasId       String?
   centroCustoId       String?
   contaBancariaId     String?
-  // Origem
-  origem              OrigemLancamento @default(AVULSO)
+  origem              String    @default("AVULSO")
   notaFiscalServicoId String?
   notaFiscalProdutoId String?
   lancamentoRecorrenteId String?
-  // Dados
   descricao           String
   numeroDocumento     String?
   competencia         DateTime
   dataEmissao         DateTime  @default(now())
   dataVencimento      DateTime
   dataPagamento       DateTime?
-  valor               Decimal   @db.Decimal(15, 2)
-  valorDesconto       Decimal   @default(0) @db.Decimal(15, 2)
-  valorJuros          Decimal   @default(0) @db.Decimal(15, 2)
-  valorMulta          Decimal   @default(0) @db.Decimal(15, 2)
-  valorPago           Decimal?  @db.Decimal(15, 2)
-  status              StatusLancamento @default(ABERTO)
-  // Parcelas
+  valor               Decimal
+  valorDesconto       Decimal   @default(0)
+  valorJuros          Decimal   @default(0)
+  valorMulta          Decimal   @default(0)
+  valorPago           Decimal?
+  status              String    @default("ABERTO")
   parcela             Int?
   totalParcelas       Int?
-  // Conciliação
   conciliado          Boolean   @default(false)
   dataConciliacao     DateTime?
   extratoId           String?
@@ -337,10 +288,6 @@ model ContaReceber {
   @@map("contas_receber")
 }
 
-// ============================================================
-// CONTAS A PAGAR
-// ============================================================
-
 model ContaPagar {
   id                  String    @id @default(uuid())
   empresaId           String
@@ -348,26 +295,22 @@ model ContaPagar {
   planoContasId       String?
   centroCustoId       String?
   contaBancariaId     String?
-  // Origem
-  origem              OrigemLancamento @default(AVULSO)
+  origem              String    @default("AVULSO")
   lancamentoRecorrenteId String?
-  // Dados
   descricao           String
   numeroDocumento     String?
   competencia         DateTime
   dataEmissao         DateTime  @default(now())
   dataVencimento      DateTime
   dataPagamento       DateTime?
-  valor               Decimal   @db.Decimal(15, 2)
-  valorDesconto       Decimal   @default(0) @db.Decimal(15, 2)
-  valorJuros          Decimal   @default(0) @db.Decimal(15, 2)
-  valorMulta          Decimal   @default(0) @db.Decimal(15, 2)
-  valorPago           Decimal?  @db.Decimal(15, 2)
-  status              StatusLancamento @default(ABERTO)
-  // Parcelas
+  valor               Decimal
+  valorDesconto       Decimal   @default(0)
+  valorJuros          Decimal   @default(0)
+  valorMulta          Decimal   @default(0)
+  valorPago           Decimal?
+  status              String    @default("ABERTO")
   parcela             Int?
   totalParcelas       Int?
-  // Conciliação
   conciliado          Boolean   @default(false)
   dataConciliacao     DateTime?
   extratoId           String?
@@ -386,17 +329,13 @@ model ContaPagar {
   @@map("contas_pagar")
 }
 
-// ============================================================
-// LANÇAMENTOS RECORRENTES
-// ============================================================
-
 model LancamentoRecorrente {
   id                String    @id @default(uuid())
   empresaId         String
-  tipo              TipoLancamento @default(PAGAR)
+  tipo              String    @default("PAGAR")
   descricao         String
-  valor             Decimal   @db.Decimal(15, 2)
-  periodicidade     Periodicidade @default(MENSAL)
+  valor             Decimal
+  periodicidade     String    @default("MENSAL")
   diaVencimento     Int
   dataInicio        DateTime
   dataFim           DateTime?
@@ -413,58 +352,47 @@ model LancamentoRecorrente {
   @@map("lancamentos_recorrentes")
 }
 
-// ============================================================
-// NOTAS FISCAIS DE SERVIÇO (NFS-e)
-// ============================================================
-
 model NotaFiscalServico {
   id                    String    @id @default(uuid())
   empresaId             String
   pessoaId              String
   numero                Int
   serie                 String    @default("1")
-  status                StatusNota @default(RASCUNHO)
-  ambiente              AmbienteFiscal @default(HOMOLOGACAO)
-  // Datas
+  status                String    @default("RASCUNHO")
+  ambiente              String    @default("HOMOLOGACAO")
   dataEmissao           DateTime  @default(now())
   dataCompetencia       DateTime
-  // Serviço
   discriminacao         String
   codigoServico         String?
   codigoCnae            String?
   itemListaServico      String?
-  // Valores
-  valorServico          Decimal   @db.Decimal(15, 2)
-  deducoes              Decimal   @default(0) @db.Decimal(15, 2)
-  baseCalculo           Decimal   @db.Decimal(15, 2)
-  // Tributos - Sistema Atual
-  aliquotaIss           Decimal   @default(0) @db.Decimal(5, 2)
-  valorIss              Decimal   @default(0) @db.Decimal(15, 2)
+  valorServico          Decimal
+  deducoes              Decimal   @default(0)
+  baseCalculo           Decimal
+  aliquotaIss           Decimal   @default(0)
+  valorIss              Decimal   @default(0)
   retidoFonte           Boolean   @default(false)
-  aliquotaPis           Decimal   @default(0) @db.Decimal(5, 2)
-  valorPis              Decimal   @default(0) @db.Decimal(15, 2)
-  aliquotaCofins        Decimal   @default(0) @db.Decimal(5, 2)
-  valorCofins           Decimal   @default(0) @db.Decimal(15, 2)
-  aliquotaCsll          Decimal   @default(0) @db.Decimal(5, 2)
-  valorCsll             Decimal   @default(0) @db.Decimal(15, 2)
-  aliquotaIr            Decimal   @default(0) @db.Decimal(5, 2)
-  valorIr               Decimal   @default(0) @db.Decimal(15, 2)
-  aliquotaInss          Decimal   @default(0) @db.Decimal(5, 2)
-  valorInss             Decimal   @default(0) @db.Decimal(15, 2)
-  // Tributos - Reforma Tributária
-  aliquotaCbs           Decimal   @default(0) @db.Decimal(5, 2)
-  valorCbs              Decimal   @default(0) @db.Decimal(15, 2)
-  aliquotaIbs           Decimal   @default(0) @db.Decimal(5, 2)
-  valorIbs              Decimal   @default(0) @db.Decimal(15, 2)
+  aliquotaPis           Decimal   @default(0)
+  valorPis              Decimal   @default(0)
+  aliquotaCofins        Decimal   @default(0)
+  valorCofins           Decimal   @default(0)
+  aliquotaCsll          Decimal   @default(0)
+  valorCsll             Decimal   @default(0)
+  aliquotaIr            Decimal   @default(0)
+  valorIr               Decimal   @default(0)
+  aliquotaInss          Decimal   @default(0)
+  valorInss             Decimal   @default(0)
+  aliquotaCbs           Decimal   @default(0)
+  valorCbs              Decimal   @default(0)
+  aliquotaIbs           Decimal   @default(0)
+  valorIbs              Decimal   @default(0)
   splitPayment          Boolean   @default(false)
-  // Valor líquido
-  valorLiquido          Decimal   @db.Decimal(15, 2)
-  // Retorno Sefaz/Prefeitura
+  valorLiquido          Decimal
   chaveAcesso           String?
   codigoVerificacao     String?
   numeroRps             String?
-  xmlEnvio              String?   @db.Text
-  xmlRetorno            String?   @db.Text
+  xmlEnvio              String?
+  xmlRetorno            String?
   pdfUrl                String?
   motivoCancelamento    String?
   dataCancelamento      DateTime?
@@ -479,10 +407,6 @@ model NotaFiscalServico {
   @@map("notas_fiscais_servico")
 }
 
-// ============================================================
-// NOTAS FISCAIS DE PRODUTO (NF-e)
-// ============================================================
-
 model NotaFiscalProduto {
   id                    String    @id @default(uuid())
   empresaId             String
@@ -490,33 +414,29 @@ model NotaFiscalProduto {
   numero                Int
   serie                 Int       @default(1)
   naturezaOperacao      String    @default("Venda de Mercadorias")
-  tipoOperacao          TipoOperacaoNFe @default(SAIDA)
-  finalidade            FinalidadeNFe   @default(NORMAL)
-  status                StatusNota      @default(RASCUNHO)
-  ambiente              AmbienteFiscal  @default(HOMOLOGACAO)
-  // Datas
+  tipoOperacao          String    @default("SAIDA")
+  finalidade            String    @default("NORMAL")
+  status                String    @default("RASCUNHO")
+  ambiente              String    @default("HOMOLOGACAO")
   dataEmissao           DateTime  @default(now())
   dataSaida             DateTime?
-  // Valores
-  valorProdutos         Decimal   @db.Decimal(15, 2)
-  valorFrete            Decimal   @default(0) @db.Decimal(15, 2)
-  valorSeguro           Decimal   @default(0) @db.Decimal(15, 2)
-  valorDesconto         Decimal   @default(0) @db.Decimal(15, 2)
-  valorOutros           Decimal   @default(0) @db.Decimal(15, 2)
-  valorIpi              Decimal   @default(0) @db.Decimal(15, 2)
-  valorIcms             Decimal   @default(0) @db.Decimal(15, 2)
-  valorPis              Decimal   @default(0) @db.Decimal(15, 2)
-  valorCofins           Decimal   @default(0) @db.Decimal(15, 2)
-  // Reforma Tributária
-  valorCbs              Decimal   @default(0) @db.Decimal(15, 2)
-  valorIbs              Decimal   @default(0) @db.Decimal(15, 2)
+  valorProdutos         Decimal
+  valorFrete            Decimal   @default(0)
+  valorSeguro           Decimal   @default(0)
+  valorDesconto         Decimal   @default(0)
+  valorOutros           Decimal   @default(0)
+  valorIpi              Decimal   @default(0)
+  valorIcms             Decimal   @default(0)
+  valorPis              Decimal   @default(0)
+  valorCofins           Decimal   @default(0)
+  valorCbs              Decimal   @default(0)
+  valorIbs              Decimal   @default(0)
   splitPayment          Boolean   @default(false)
-  valorTotal            Decimal   @db.Decimal(15, 2)
-  // Retorno Sefaz
+  valorTotal            Decimal
   chaveAcesso           String?   @unique
   protocolo             String?
-  xmlEnvio              String?   @db.Text
-  xmlRetorno            String?   @db.Text
+  xmlEnvio              String?
+  xmlRetorno            String?
   pdfUrl                String?
   motivoCancelamento    String?
   dataCancelamento      DateTime?
@@ -541,38 +461,30 @@ model ItemNFe {
   ncm                   String?
   cfop                  String?
   unidade               String    @default("UN")
-  quantidade            Decimal   @db.Decimal(15, 4)
-  valorUnitario         Decimal   @db.Decimal(15, 4)
-  valorTotal            Decimal   @db.Decimal(15, 2)
-  // ICMS
+  quantidade            Decimal
+  valorUnitario         Decimal
+  valorTotal            Decimal
   cstIcms               String?
-  aliquotaIcms          Decimal   @default(0) @db.Decimal(5, 2)
-  valorIcms             Decimal   @default(0) @db.Decimal(15, 2)
-  // IPI
+  aliquotaIcms          Decimal   @default(0)
+  valorIcms             Decimal   @default(0)
   cstIpi                String?
-  aliquotaIpi           Decimal   @default(0) @db.Decimal(5, 2)
-  valorIpi              Decimal   @default(0) @db.Decimal(15, 2)
-  // PIS/COFINS
+  aliquotaIpi           Decimal   @default(0)
+  valorIpi              Decimal   @default(0)
   cstPis                String?
-  aliquotaPis           Decimal   @default(0) @db.Decimal(5, 2)
-  valorPis              Decimal   @default(0) @db.Decimal(15, 2)
+  aliquotaPis           Decimal   @default(0)
+  valorPis              Decimal   @default(0)
   cstCofins             String?
-  aliquotaCofins        Decimal   @default(0) @db.Decimal(5, 2)
-  valorCofins           Decimal   @default(0) @db.Decimal(15, 2)
-  // Reforma Tributária
-  aliquotaCbs           Decimal   @default(0) @db.Decimal(5, 2)
-  valorCbs              Decimal   @default(0) @db.Decimal(15, 2)
-  aliquotaIbs           Decimal   @default(0) @db.Decimal(5, 2)
-  valorIbs              Decimal   @default(0) @db.Decimal(15, 2)
+  aliquotaCofins        Decimal   @default(0)
+  valorCofins           Decimal   @default(0)
+  aliquotaCbs           Decimal   @default(0)
+  valorCbs              Decimal   @default(0)
+  aliquotaIbs           Decimal   @default(0)
+  valorIbs              Decimal   @default(0)
 
   notaFiscal            NotaFiscalProduto @relation(fields: [notaFiscalProdutoId], references: [id], onDelete: Cascade)
 
   @@map("itens_nfe")
 }
-
-// ============================================================
-// CONCILIAÇÃO BANCÁRIA
-// ============================================================
 
 model ConciliacaoBancaria {
   id              String    @id @default(uuid())
@@ -581,9 +493,9 @@ model ConciliacaoBancaria {
   descricao       String
   dataInicio      DateTime
   dataFim         DateTime
-  saldoInicial    Decimal   @db.Decimal(15, 2)
-  saldoFinal      Decimal   @db.Decimal(15, 2)
-  status          StatusConciliacao @default(EM_ANDAMENTO)
+  saldoInicial    Decimal
+  saldoFinal      Decimal
+  status          String    @default("EM_ANDAMENTO")
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
 
@@ -601,9 +513,9 @@ model ExtratoBancario {
   data                DateTime
   historico           String
   documento           String?
-  valor               Decimal   @db.Decimal(15, 2)
-  tipo                TipoMovimento @default(CREDITO)
-  saldoAposMovimento  Decimal?  @db.Decimal(15, 2)
+  valor               Decimal
+  tipo                String    @default("CREDITO")
+  saldoAposMovimento  Decimal?
   conciliado          Boolean   @default(false)
   createdAt           DateTime  @default(now())
 
@@ -615,10 +527,6 @@ model ExtratoBancario {
   @@map("extratos_bancarios")
 }
 
-// ============================================================
-// LOG DE AUDITORIA
-// ============================================================
-
 model LogAuditoria {
   id          String    @id @default(uuid())
   empresaId   String?
@@ -626,8 +534,8 @@ model LogAuditoria {
   entidade    String
   entidadeId  String?
   acao        String
-  dadosAntes  Json?
-  dadosDepois Json?
+  dadosAntes  String?
+  dadosDepois String?
   ip          String?
   createdAt   DateTime  @default(now())
 
@@ -635,131 +543,4 @@ model LogAuditoria {
   usuario     Usuario?  @relation(fields: [usuarioId], references: [id])
 
   @@map("logs_auditoria")
-}
-
-// ============================================================
-// ENUMS
-// ============================================================
-
-enum RegimeTributario {
-  SIMPLES_NACIONAL
-  LUCRO_PRESUMIDO
-  LUCRO_REAL
-  MEI
-}
-
-enum TipoEmpresa {
-  SERVICO
-  COMERCIO
-  INDUSTRIA
-  MISTO
-}
-
-enum TipoPessoa {
-  FISICA
-  JURIDICA
-}
-
-enum PerfilAcesso {
-  ADMIN
-  GERENTE
-  OPERADOR
-  VISUALIZADOR
-}
-
-enum TipoContaContabil {
-  ATIVO
-  PASSIVO
-  PATRIMONIO
-  RECEITA
-  DESPESA
-  CUSTOS
-}
-
-enum NaturezaConta {
-  DEVEDORA
-  CREDORA
-}
-
-enum TipoConta {
-  CORRENTE
-  POUPANCA
-  INVESTIMENTO
-  CAIXA
-}
-
-enum StatusLancamento {
-  ABERTO
-  PAGO
-  PARCIAL
-  CANCELADO
-  VENCIDO
-}
-
-enum OrigemLancamento {
-  AVULSO
-  RECORRENTE
-  FATURAMENTO
-  COMPRA
-}
-
-enum TipoLancamento {
-  RECEBER
-  PAGAR
-}
-
-enum Periodicidade {
-  DIARIO
-  SEMANAL
-  QUINZENAL
-  MENSAL
-  BIMESTRAL
-  TRIMESTRAL
-  SEMESTRAL
-  ANUAL
-}
-
-enum StatusNota {
-  RASCUNHO
-  ENVIADA
-  AUTORIZADA
-  CANCELADA
-  DENEGADA
-  INUTILIZADA
-}
-
-enum AmbienteFiscal {
-  PRODUCAO
-  HOMOLOGACAO
-}
-
-enum TipoOperacaoNFe {
-  ENTRADA
-  SAIDA
-}
-
-enum FinalidadeNFe {
-  NORMAL
-  COMPLEMENTAR
-  AJUSTE
-  DEVOLUCAO
-}
-
-enum TipoMovimento {
-  CREDITO
-  DEBITO
-}
-
-enum StatusConciliacao {
-  EM_ANDAMENTO
-  CONCLUIDA
-  CANCELADA
-}
-
-enum AnexoSimples {
-  I
-  II
-  III
-  IV
-  V
 }
