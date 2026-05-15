@@ -4,4 +4,5 @@ node_modules/
 *.p12
 dist/
 .prisma/
-financeiro/backend/prisma/llana.db
+backend/prisma/llana.db
+backend/prisma/*.db
